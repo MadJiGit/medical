@@ -71,14 +71,14 @@ final class PageController extends AbstractController
         $selectedProduct = $request->query->get('product');
 
         if ($request->isMethod('POST')) {
-            // Попълва DTO
+            // Populate DTO
             $dto->name = trim($request->request->get('name'));
             $dto->email = trim($request->request->get('email'));
             $dto->phone = trim($request->request->get('phone'));
             $dto->message = trim($request->request->get('message'));
             $dto->product_id = $request->request->get('product_id') ?: null;
 
-            // Валидира
+            // Validate
             $violations = $validator->validate($dto);
 
             if (count($violations) > 0) {
@@ -86,10 +86,10 @@ final class PageController extends AbstractController
                     $errors[] = $violation->getMessage();
                 }
             } else {
-                // Търси или създава User
+                // Find or create User
                 $user = $userRepository->findOrCreateClient($dto->email, $dto->name, $dto->phone);
 
-                // Създава ContactRequest
+                // Create ContactRequest
                 $contactRequestRepository->createContactRequest($user, $dto->message, $dto->product_id);
                 $contactRequestRepository->save();
 

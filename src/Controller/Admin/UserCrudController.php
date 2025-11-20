@@ -91,11 +91,11 @@ class UserCrudController extends AbstractCrudController
             ->add(Crud::PAGE_NEW, Action::INDEX)
             ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
                 return $action->displayIf(function ($entity) {
-                    // Забрана за редакция на себе си
+                    // Prevent editing yourself
                     if ($entity->getId() === $this->getUser()->getId()) {
                         return false;
                     }
-                    // ADMIN не може да редактира SUPER_ADMIN
+                    // ADMIN cannot edit SUPER_ADMIN
                     if (!$this->isGranted('ROLE_SUPER_ADMIN') && in_array('ROLE_SUPER_ADMIN', $entity->getRoles())) {
                         return false;
                     }
@@ -104,11 +104,11 @@ class UserCrudController extends AbstractCrudController
             })
             ->update(Crud::PAGE_INDEX, Action::DELETE, function (Action $action) {
                 return $action->displayIf(function ($entity) {
-                    // Забрана за изтриване на себе си
+                    // Prevent deleting yourself
                     if ($entity->getId() === $this->getUser()->getId()) {
                         return false;
                     }
-                    // ADMIN не може да изтрива SUPER_ADMIN
+                    // ADMIN cannot delete SUPER_ADMIN
                     if (!$this->isGranted('ROLE_SUPER_ADMIN') && in_array('ROLE_SUPER_ADMIN', $entity->getRoles())) {
                         return false;
                     }
@@ -130,11 +130,11 @@ class UserCrudController extends AbstractCrudController
     {
         if ($entityInstance instanceof User) {
             $password = $entityInstance->getPassword();
-            if ($password && strlen($password) < 60) { // не е хеширана
+            if ($password && strlen($password) < 60) { // not hashed yet
                 $hashedPassword = $this->passwordHasher->hashPassword($entityInstance, $password);
                 $entityInstance->setPassword($hashedPassword);
             } else {
-                // Възстанови старата парола
+                // Restore original password
                 $originalData = $entityManager->getUnitOfWork()->getOriginalEntityData($entityInstance);
                 $entityInstance->setPassword($originalData['password']);
             }

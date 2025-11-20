@@ -19,13 +19,11 @@ class ExceptionListener
     {
         $exception = $event->getThrowable();
 
-        dd($exception->getMessage());
-
         if (!$exception instanceof NotFoundHttpException) {
             return;
         }
 
-        // Проверява дали има логнат потребител
+        // Check if user is authenticated
         $token = $this->tokenStorage->getToken();
 
         if (!$token || !$token->getUser()) {
