@@ -1,0 +1,86 @@
+/* Edit buttons - dark yellow/orange */
+.action-edit,
+.action-edit .btn,
+a.action-edit {
+    background-color: #d4a017 !important;
+    border-color: #d4a017 !important;
+    color: #fff !important;
+}
+
+.action-edit:hover,
+.action-edit .btn:hover,
+a.action-edit:hover {
+    background-color: #b8860b !important;
+    border-color: #b8860b !important;
+}
+
+/* Save and continue editing - yellow */
+.action-saveAndContinue,
+button[name="ea[newForm][btn]"][value="saveAndContinue"],
+button[name="ea[editForm][btn]"][value="saveAndContinue"] {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+/* Back/Index buttons - green */
+.action-index,
+a.action-index {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.action-index:hover,
+a.action-index:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* Back to Contact Requests - green */
+.action-backToContactRequests,
+a.action-backToContactRequests {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+.action-backToContactRequests:hover,
+a.action-backToContactRequests:hover {
+    background-color: #218838 !important;
+    border-color: #1e7e34 !important;
+}
+
+/* Fixed width for Create/Edit Sample buttons */
+.action-createSample,
+.action-editSample,
+a.action-createSample,
+a.action-editSample {
+    min-width: 140px;
+    text-align: center;
+    display: inline-flex;
+    justify-content: center;
+}
+a.action-createSample {
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+a.action-editSample {
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+a.action-detail {
+    background-color: #4b9efc !important;
+    border-color: #007bff !important;
+    color: #fff !important;
+}
+
+a.action-delete,
+a[data-action-name="delete"] {
+    background-color: #e32121 !important;
+    border-color: #e32121 !important;
+    color: #fff !important;
+}

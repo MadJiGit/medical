@@ -1,0 +1,136 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.products'|trans }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'nav.products'|trans }}</h2>
+        </div>
+
+        {% for categoryData in productsByCategory %}
+            <div class="category-section mb-5" id="category-{{ categoryData.category.id }}">
+                <h3 class="category-title">{{ categoryData.category.name }}</h3>
+
+                {% for product in categoryData.products %}
+                    <div class="product-item mb-4">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <div class="product-thumbnail">
+                                    <img src="/{{ product.image }}" alt="{{ product.name }}" class="img-fluid">
+                                </div>
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="product-title">{{ product.name }}</h4>
+                                {% if product.manufacturer %}
+                                    <p class="product-manufacturer"><small class="text-muted">{{ 'products.manufacturer'|trans({}, 'pages') }}: {{ product.manufacturer }}</small></p>
+                                {% endif %}
+                                <p class="product-description">{{ product.short_description }}</p>
+
+                                <div class="d-flex justify-content-between align-items-center mb-3">
+                                    <button class="btn btn-link p-0 read-more-btn" type="button" data-toggle="collapse" data-target="#product{{ loop.parent.loop.index }}{{ loop.index }}" aria-expanded="false">
+                                        <span class="when-closed">{{ 'common.read_more'|trans }} <i class="fa fa-angle-down"></i></span>
+                                        <span class="when-open" style="display: none;">{{ 'common.show_less'|trans }} <i class="fa fa-angle-up"></i></span>
+                                    </button>
+
+                                    <a href="{{ path('app_contact', {product: product.id}) }}" class="btn btn-primary">
+                                        {{ 'products.request_sample'|trans({}, 'pages') }}
+                                    </a>
+                                </div>
+
+                                <div class="collapse" id="product{{ loop.parent.loop.index }}{{ loop.index }}">
+                                    <div class="product-details">
+                                        <ul class="nav nav-tabs" id="productTabs{{ loop.parent.loop.index }}{{ loop.index }}" role="tablist">
+                                            <li class="nav-item">
+                                                <a class="nav-link active" id="desc-tab-{{ loop.parent.loop.index }}{{ loop.index }}" data-toggle="tab" href="#desc{{ loop.parent.loop.index }}{{ loop.index }}" role="tab">
+                                                    {{ 'products.description'|trans({}, 'pages') }}
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="features-tab-{{ loop.parent.loop.index }}{{ loop.index }}" data-toggle="tab" href="#features{{ loop.parent.loop.index }}{{ loop.index }}" role="tab">
+                                                    {{ 'products.features'|trans({}, 'pages') }}
+                                                </a>
+                                            </li>
+                                            {% if product.how_to_use %}
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="howto-tab-{{ loop.parent.loop.index }}{{ loop.index }}" data-toggle="tab" href="#howto{{ loop.parent.loop.index }}{{ loop.index }}" role="tab">
+                                                    {{ 'products.how_to_use'|trans({}, 'pages') }}
+                                                </a>
+                                            </li>
+                                            {% endif %}
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="suitable-tab-{{ loop.parent.loop.index }}{{ loop.index }}" data-toggle="tab" href="#suitable{{ loop.parent.loop.index }}{{ loop.index }}" role="tab">
+                                                    {{ 'products.suitable_for'|trans({}, 'pages') }}
+                                                </a>
+                                            </li>
+                                        </ul>
+
+                                        <div class="tab-content mt-3" id="productTabContent{{ loop.parent.loop.index }}{{ loop.index }}">
+                                            <div class="tab-pane fade show active" id="desc{{ loop.parent.loop.index }}{{ loop.index }}" role="tabpanel">
+                                                <p>{{ product.description }}</p>
+                                            </div>
+                                            <div class="tab-pane fade" id="features{{ loop.parent.loop.index }}{{ loop.index }}" role="tabpanel">
+                                                <ul>
+                                                    {% for feature in product.features %}
+                                                        <li>{{ feature }}</li>
+                                                    {% endfor %}
+                                                </ul>
+                                            </div>
+                                            {% if product.how_to_use %}
+                                            <div class="tab-pane fade" id="howto{{ loop.parent.loop.index }}{{ loop.index }}" role="tabpanel">
+                                                <ol>
+                                                    {% for step in product.how_to_use|split('\n') %}
+                                                        {% if step|trim %}
+                                                            <li>{{ step|trim }}</li>
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </ol>
+                                            </div>
+                                            {% endif %}
+                                            <div class="tab-pane fade" id="suitable{{ loop.parent.loop.index }}{{ loop.index }}" role="tabpanel">
+                                                <p>{{ product.suitable_for }}</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+
+        {% if productsByCategory is empty %}
+            <div class="alert alert-info">
+                {{ 'pages.products.no_products'|trans({}, 'pages') }}
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<script>
+// Toggle read more/show less text
+document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.read-more-btn');
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            const whenClosed = this.querySelector('.when-closed');
+            const whenOpen = this.querySelector('.when-open');
+
+            setTimeout(() => {
+                if (whenClosed.style.display === 'none') {
+                    whenClosed.style.display = 'inline';
+                    whenOpen.style.display = 'none';
+                } else {
+                    whenClosed.style.display = 'none';
+                    whenOpen.style.display = 'inline';
+                }
+            }, 10);
+        });
+    });
+});
+</script>
+{% endblock %}

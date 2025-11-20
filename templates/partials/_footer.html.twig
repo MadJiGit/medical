@@ -1,0 +1,62 @@
+<footer class="footer_section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-lg-3 footer_col">
+                <div class="footer_contact">
+                    <h4>{{ 'footer.reach_at'|trans }}</h4>
+                    <div class="contact_link_box">
+                        <a href="">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>{{ 'footer.address'|trans }}</span>
+                        </a>
+                        <a href="tel:{{ app_phone }}">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>{{ 'footer.call'|trans }} {{ app_phone }}</span>
+                        </a>
+                        <a href="mailto:{{ app_email }}">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>{{ app_email }}</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer_social">
+                    <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3 footer_col">
+                <div class="footer_detail">
+                    <h4>{{ 'footer.about'|trans }}</h4>
+                    <p>{{ 'footer.about_text'|trans }}</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-2 mx-auto footer_col">
+                <div class="footer_link_box">
+                    <h4>{{ 'footer.links'|trans }}</h4>
+                    <div class="footer_links">
+                        <a href="{{ path('app_home') }}">{{ 'nav.home'|trans }}</a>
+                        <a href="{{ path('app_about') }}">{{ 'nav.about'|trans }}</a>
+                        <a href="{{ path('app_products') }}">{{ 'nav.products'|trans }}</a>
+                        <a href="{{ path('app_contact') }}">{{ 'nav.contact'|trans }}</a>
+                        <a href="{{ path('app_faq') }}">{{ 'nav.faq'|trans }}</a>
+                        <a href="{{ path('app_terms') }}">{{ 'nav.terms'|trans }}</a>
+                        <a href="{{ path('app_privacy') }}">{{ 'nav.privacy'|trans }}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-info">
+            <p>&copy; {{ "now"|date("Y") }} {{ 'footer.all_rights'|trans }}</p>
+        </div>
+        <!-- Developer credit (centered) -->
+        <div class="text-center mt-3">
+            <div class="d-inline-flex align-items-center gap-2">
+                {{ 'footer.developed_by'|trans }}&nbsp;&nbsp;<a href="https://mladenraykov.com" target="_blank">
+                    <img class="madji-img-footer" src="{{ asset('images/logos/logo-no-background.png') }}" alt="MADJI logo" class="logo-mini">
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

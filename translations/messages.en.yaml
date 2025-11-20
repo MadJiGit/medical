@@ -1,0 +1,42 @@
+# Navigation
+nav:
+    home: 'Home'
+    about: 'About'
+    products: 'Products'
+    all_products: 'All Products'
+    contact: 'Contact'
+    faq: 'FAQ'
+    terms: 'Terms of Use'
+    privacy: 'Privacy Policy'
+
+# Common
+common:
+    read_more: 'Read more'
+    show_less: 'Show less'
+    send: 'Send'
+    back: 'Back'
+    last_updated: 'Last updated: %date%'
+
+# Contact form
+contact:
+    title: 'Get In Touch'
+    name: 'Your Name'
+    email: 'Email'
+    phone: 'Phone Number'
+    message: 'Message'
+    product: 'I am interested in product'
+    product_placeholder: 'Select a product (optional)'
+    send: 'SEND'
+    success: 'Your message has been sent successfully!'
+    gdpr_consent: 'I agree to the <a href="/privacy" target="_blank">Privacy Policy</a>'
+
+# Footer
+footer:
+    reach_at: 'Reach at..'
+    address: 'Sofia, Bulgaria'
+    call: 'Call'
+    about: 'About'
+    about_text: 'Medical product information and samples distribution.'
+    links: 'Links'
+    developed_by: 'Developed by'
+    all_rights: 'All Rights Reserved'

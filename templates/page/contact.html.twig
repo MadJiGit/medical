@@ -1,0 +1,73 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'contact.title'|trans }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="contact_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'contact.title'|trans }}</h2>
+        </div>
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success">{{ message }}</div>
+        {% endfor %}
+
+        {% if errors is defined and errors|length > 0 %}
+            <div class="alert alert-danger">
+                <ul class="mb-0">
+                    {% for error in errors %}
+                        <li>{{ error }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form_container contact-form">
+                    <form action="" method="post">
+                        <div class="form-row">
+                            <div class="col-lg-6">
+                                <div>
+                                    <input type="text" name="name" placeholder="{{ 'contact.name'|trans }}" value="{{ form.name }}" required />
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div>
+                                    <input type="text" name="phone" placeholder="{{ 'contact.phone'|trans }}" value="{{ form.phone }}" />
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <input type="email" name="email" placeholder="{{ 'contact.email'|trans }}" value="{{ form.email }}" required />
+                        </div>
+                        <div>
+                            <select name="product_id" class="form-control">
+                                <option value="">{{ 'contact.product_placeholder'|trans }}</option>
+                                {% for id, name in products %}
+                                    <option value="{{ id }}" {{ (form.product_id == id or (selectedProduct is defined and selectedProduct == id and not form.product_id)) ? 'selected' : '' }}>{{ name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div>
+                            <input type="text" name="message" class="message-box" placeholder="{{ 'contact.message'|trans }}" value="{{ form.message }}" required />
+                        </div>
+                        <div class="form-check mt-3 mb-3">
+                            <input type="checkbox" class="form-check-input" id="gdprConsent" name="gdpr_consent" required />
+                            <label class="form-check-label" for="gdprConsent">
+                                {{ 'contact.gdpr_consent'|trans|raw }}
+                            </label>
+                        </div>
+                        <div class="btn_box">
+                            <button type="submit">{{ 'contact.send'|trans }}</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

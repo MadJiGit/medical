@@ -1,0 +1,42 @@
+# Navigation
+nav:
+    home: 'Начало'
+    about: 'За нас'
+    products: 'Продукти'
+    all_products: 'Всички продукти'
+    contact: 'Контакт'
+    faq: 'Въпроси'
+    terms: 'Условия за ползване'
+    privacy: 'Поверителност'
+
+# Common
+common:
+    read_more: 'Прочети повече'
+    show_less: 'Покажи по-малко'
+    send: 'Изпрати'
+    back: 'Назад'
+    last_updated: 'Последна актуализация: %date%'
+
+# Contact form
+contact:
+    title: 'Свържете се с нас'
+    name: 'Вашето име'
+    email: 'Email'
+    phone: 'Телефон'
+    message: 'Съобщение'
+    product: 'Интересувам се от продукт'
+    product_placeholder: 'Изберете продукт (по избор)'
+    send: 'ИЗПРАТИ'
+    success: 'Съобщението ви беше изпратено успешно!'
+    gdpr_consent: 'Съгласен съм с <a href="/privacy" target="_blank">Политиката за поверителност</a>'
+
+# Footer
+footer:
+    reach_at: 'Контакти'
+    address: 'София, България'
+    call: 'Обадете се'
+    about: 'За нас'
+    about_text: 'Информация за медицински продукти и разпространение на мостри.'
+    links: 'Линкове'
+    developed_by: 'Разработено от'
+    all_rights: 'Всички права запазени'

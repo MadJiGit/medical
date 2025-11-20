@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'privacy.title'|trans({}, 'pages') }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'privacy.title'|trans({}, 'pages') }}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <p class="text-muted mb-4">{{ 'common.last_updated'|trans({'%date%': app_legal_updated}) }}</p>
+                {{ 'privacy.content'|trans({}, 'pages')|replace({'%app_email%': app_email})|raw }}
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

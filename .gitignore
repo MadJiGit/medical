@@ -1,6 +1,7 @@
 
 ###> symfony/framework-bundle ###
 /.env.local
+/.env.dev
 /.env.local.php
 /.env.*.local
 /config/secrets/prod/prod.decrypt.private.php
@@ -8,3 +9,39 @@
 /var/
 /vendor/
 ###< symfony/framework-bundle ###
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
+
+###> IDE ###
+/.idea/
+/.vscode/
+*.swp
+*.swo
+*~
+###< IDE ###
+
+###> OS ###
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+###< OS ###
+
+###> node/npm ###
+/node_modules/
+npm-debug.log
+yarn-error.log
+###< node/npm ###
+
+###> project specific ###
+ARCHITECTURE.md
+for_claude.txt
+products.json
+.env.dev
+###< project specific ###

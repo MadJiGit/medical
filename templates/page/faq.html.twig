@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'faq.title'|trans({}, 'pages') }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="about_section layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'faq.title'|trans({}, 'pages') }}</h2>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="faq-item mb-4">
+                    <h4>{{ 'faq.q1.question'|trans({}, 'pages') }}</h4>
+                    <p>{{ 'faq.q1.answer'|trans({}, 'pages') }}</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h4>{{ 'faq.q2.question'|trans({}, 'pages') }}</h4>
+                    <p>{{ 'faq.q2.answer'|trans({}, 'pages') }}</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h4>{{ 'faq.q3.question'|trans({}, 'pages') }}</h4>
+                    <p>{{ 'faq.q3.answer'|trans({}, 'pages') }}</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h4>{{ 'faq.q4.question'|trans({}, 'pages') }}</h4>
+                    <p>{{ 'faq.q4.answer'|trans({}, 'pages') }}</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h4>{{ 'faq.q5.question'|trans({}, 'pages') }}</h4>
+                    <p>{{ 'faq.q5.answer'|trans({}, 'pages') }}</p>
+                </div>
+                <div class="faq-item mb-4">
+                    <h4>{{ 'faq.q6.question'|trans({}, 'pages') }}</h4>
+                    <p>{{ 'faq.q6.answer'|trans({}, 'pages') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

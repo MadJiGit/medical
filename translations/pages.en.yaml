@@ -1,0 +1,187 @@
+# Home Page
+home:
+    title: 'Home'
+    hero_title: 'We Provide Best Healthcare'
+    hero_text: 'Your trusted partner for medical product information and samples.'
+    contact_us: 'Contact Us'
+
+# Products Page
+products:
+    description: 'Description'
+    features: 'Features'
+    how_to_use: 'How to Use'
+    suitable_for: 'Suitable for'
+    manufacturer: 'Manufacturer'
+    request_sample: 'Request Sample'
+    no_products: 'No products available at the moment.'
+
+# About Page
+about:
+    title: 'About'
+    title_highlight: 'Us'
+    text1: 'We provide information about medical consumables and distribute free samples to people who need them after surgeries or medical procedures.'
+    text2: 'Our mission is to help people learn about outpatient care products and make informed choices for their health.'
+
+# FAQ Page
+faq:
+    title: 'Frequently Asked Questions'
+    q1:
+        question: 'What are samples?'
+        answer: 'Samples are free medical consumable products that allow you to try the product before deciding if it suits your needs.'
+    q2:
+        question: 'How can I order a sample?'
+        answer: 'Fill out the contact form on our website with your details and indicate which product you are interested in. We will contact you to confirm the delivery address.'
+    q3:
+        question: 'Are samples free?'
+        answer: 'Yes, all samples are completely free, including delivery.'
+    q4:
+        question: 'How many samples can I order?'
+        answer: 'You can receive one sample of each product. This allows you to try different products and choose the most suitable one for you.'
+    q5:
+        question: 'How long does delivery take?'
+        answer: 'Delivery usually takes between 3-5 business days after order confirmation.'
+    q6:
+        question: 'Who are the samples intended for?'
+        answer: 'Samples are intended for all adults (over 18 years old) who need medical consumables for outpatient care after surgeries or medical procedures.'
+
+# Terms of Use Page
+terms:
+    title: 'Terms of Use'
+    content: |
+        <h3>1. General Terms</h3>
+        <p>By using this website, you agree to these terms of use. If you do not agree with these terms, please do not use the site.</p>
+
+        <h3>2. Service Description</h3>
+        <p>Medical provides free samples of medical consumables intended for individuals who need products for outpatient care after medical procedures or surgeries.</p>
+        <p>The service is available to all adults (over 18 years old) who need such products for personal use.</p>
+
+        <h3>3. Sample Requests</h3>
+        <p>By requesting samples, you agree that:</p>
+        <ul>
+            <li>The information you provide is true and accurate</li>
+            <li>Samples are intended for personal use and product evaluation</li>
+            <li>You will not resell or distribute the received samples</li>
+            <li>You will use the products according to the included instructions</li>
+        </ul>
+
+        <h3>4. Limitations</h3>
+        <p>We reserve the right to:</p>
+        <ul>
+            <li>Limit the number of samples per person</li>
+            <li>Refuse a request without explanation</li>
+            <li>Modify or discontinue the service at any time</li>
+        </ul>
+
+        <h3>5. Medical Disclaimer</h3>
+        <p><strong>Important:</strong> The information on this site and the provided samples do not replace professional medical advice, diagnosis, or treatment. Always consult a doctor or other qualified health professional regarding your health condition.</p>
+        <p>If you experience serious symptoms or need emergency medical attention, please contact the nearest healthcare facility.</p>
+
+        <h3>6. Limitation of Liability</h3>
+        <p>Medical is not liable for:</p>
+        <ul>
+            <li>Allergic reactions or adverse effects from using the products</li>
+            <li>Improper use of samples</li>
+            <li>Delivery delays or failures due to force majeure circumstances</li>
+            <li>Indirect or consequential damages</li>
+        </ul>
+        <p>Use of samples is entirely at your own risk.</p>
+
+        <h3>7. Intellectual Property</h3>
+        <p>All materials on this site, including texts, images, logos, and design, are protected by copyright and belong to Medical or their respective owners. Copying, distributing, or using these materials without express written consent is prohibited.</p>
+
+        <h3>8. Links to Other Sites</h3>
+        <p>The site may contain links to external websites. We are not responsible for the content or privacy policies of these sites.</p>
+
+        <h3>9. Changes to Terms</h3>
+        <p>We reserve the right to update these terms at any time. Changes take effect from the moment they are published on the site. By continuing to use the site after changes, you accept the new terms.</p>
+
+        <h3>10. Applicable Law</h3>
+        <p>These terms are governed by the laws of the Republic of Bulgaria. All disputes will be resolved by the competent Bulgarian courts.</p>
+
+        <h3>11. Contact</h3>
+        <p>For questions regarding these terms, please contact us at: <strong>%app_email%</strong></p>
+
+# Privacy Policy Page
+privacy:
+    title: 'Privacy Policy'
+    content: |
+        <h3>1. Data Controller</h3>
+        <p>The controller of your personal data is Medical. For questions regarding personal data processing, please contact us at: <strong>%app_email%</strong></p>
+
+        <h3>2. What Data We Collect</h3>
+        <p>We collect the following categories of personal data:</p>
+        <ul>
+            <li><strong>Identification data:</strong> name</li>
+            <li><strong>Contact data:</strong> email address, phone number</li>
+            <li><strong>Delivery data:</strong> address, city, postal code (when requesting a sample)</li>
+            <li><strong>Communication:</strong> content of messages you send us</li>
+        </ul>
+
+        <h3>3. Why We Collect Your Data</h3>
+        <p>We process your personal data for the following purposes:</p>
+        <ul>
+            <li>Processing requests for medical product samples</li>
+            <li>Responding to your questions and inquiries</li>
+            <li>Shipping requested samples to the provided address</li>
+            <li>Communication regarding your requests</li>
+        </ul>
+
+        <h3>4. Legal Basis for Processing</h3>
+        <p>We process your data on the following legal grounds:</p>
+        <ul>
+            <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> When you submit a contact form, you give explicit consent for processing your data.</li>
+            <li><strong>Contract performance (Art. 6(1)(b) GDPR):</strong> For shipping requested samples.</li>
+            <li><strong>Legitimate interest (Art. 6(1)(f) GDPR):</strong> For improving our services.</li>
+        </ul>
+
+        <h3>5. Data Retention Period</h3>
+        <p>We store your personal data for a period of <strong>2 years</strong> after your last request, unless the law requires a longer period. After this period, data is deleted or anonymized.</p>
+
+        <h3>6. Data Sharing</h3>
+        <p>We do not sell, rent, or share your personal data with third parties, except:</p>
+        <ul>
+            <li>Courier companies - for sample delivery</li>
+            <li>Hosting service providers - for data storage</li>
+            <li>When legally required by competent authorities</li>
+        </ul>
+
+        <h3>7. Your Rights</h3>
+        <p>Under GDPR, you have the following rights:</p>
+        <ul>
+            <li><strong>Right of access:</strong> You can request a copy of your personal data.</li>
+            <li><strong>Right to rectification:</strong> You can request correction of inaccurate data.</li>
+            <li><strong>Right to erasure ("right to be forgotten"):</strong> You can request deletion of your data.</li>
+            <li><strong>Right to restriction of processing:</strong> You can request restriction of processing under certain circumstances.</li>
+            <li><strong>Right to data portability:</strong> You can receive your data in a structured, machine-readable format.</li>
+            <li><strong>Right to object:</strong> You can object to the processing of your data.</li>
+            <li><strong>Right to withdraw consent:</strong> You can withdraw your consent at any time.</li>
+        </ul>
+
+        <h3>8. How to Exercise Your Rights</h3>
+        <p>To exercise any of your rights or request deletion of your data, please contact us:</p>
+        <ul>
+            <li><strong>Email:</strong> %app_email%</li>
+            <li><strong>Subject:</strong> "GDPR Rights Request"</li>
+        </ul>
+        <p>We will respond to your request within <strong>30 days</strong>. We may request additional information to verify your identity.</p>
+
+        <h3>9. Data Security</h3>
+        <p>We implement appropriate technical and organizational measures to protect your data, including:</p>
+        <ul>
+            <li>SSL encryption of all communications</li>
+            <li>Restricted access to personal data only for authorized personnel</li>
+            <li>Regular backup and database protection</li>
+        </ul>
+
+        <h3>10. Cookies</h3>
+        <p>Our website uses only technically necessary cookies for site functionality (e.g., for storing language preferences). We do not use tracking or marketing cookies.</p>
+
+        <h3>11. Right to Lodge a Complaint</h3>
+        <p>If you believe that the processing of your data violates GDPR, you have the right to lodge a complaint with the Commission for Personal Data Protection:</p>
+        <ul>
+            <li><strong>Address:</strong> 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria</li>
+            <li><strong>Website:</strong> <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a></li>
+        </ul>
+
+        <h3>12. Policy Changes</h3>
+        <p>We reserve the right to update this policy. For significant changes, we will post a notice on the website. We recommend regularly reviewing this page.</p>

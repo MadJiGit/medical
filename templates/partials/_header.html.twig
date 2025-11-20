@@ -1,0 +1,50 @@
+<header class="header_section">
+    <div class="container">
+        <nav class="navbar navbar-expand-lg custom_nav-container">
+            <a class="navbar-brand" href="{{ path('app_home') }}">
+                <span>Medical</span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+                <span class=""></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav">
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_home' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_home') }}">{{ 'nav.home'|trans }}</a>
+                    </li>
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_about' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_about') }}">{{ 'nav.about'|trans }}</a>
+                    </li>
+                    <li class="nav-item dropdown {{ app.request.attributes.get('_route') == 'app_products' ? 'active' : '' }}">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{ 'nav.products'|trans }}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{{ path('app_products') }}">{{ 'nav.all_products'|trans }}</a>
+                            <div class="dropdown-divider"></div>
+                            {% set _ = product_service.setLocale(app.request.locale) %}
+                            {% for category in product_service.getCategories() %}
+                                <a class="dropdown-item" href="{{ path('app_products') }}#category-{{ category.id }}">{{ category.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_contact') }}">{{ 'nav.contact'|trans }}</a>
+                    </li>
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_faq' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_faq') }}">{{ 'nav.faq'|trans }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <span class="nav-link locale-switcher">
+                            <a href="{{ path('app_locale', {locale: 'bg'}) }}" class="{{ app.request.locale == 'bg' ? 'active' : '' }}">BG</a>
+                            |
+                            <a href="{{ path('app_locale', {locale: 'en'}) }}" class="{{ app.request.locale == 'en' ? 'active' : '' }}">EN</a>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>

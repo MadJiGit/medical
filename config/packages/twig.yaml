@@ -1,0 +1,13 @@
+twig:
+    file_name_pattern: '*.twig'
+    globals:
+        app_email: '%app.email%'
+        app_phone: '%app.phone%'
+        app_name: '%app.company_name%'
+        app_address: '%app.address%'
+        app_legal_updated: '%app.legal_updated%'
+        product_service: '@App\Service\ProductService'
+
+when@test:
+    twig:
+        strict_variables: true

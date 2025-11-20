@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'home.title'|trans({}, 'pages') }} - Medical{% endblock %}
+
+{% block body %}
+<div class="hero_area">
+    <div class="hero_bg_box">
+        <img src="{{ asset('images/hero-bg.png') }}" alt="">
+    </div>
+
+    {% include 'partials/_header.html.twig' %}
+
+    <section class="slider_section">
+        <div id="customCarousel1" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-7">
+                                <div class="detail-box">
+                                    <h1>{{ 'home.hero_title'|trans({}, 'pages') }}</h1>
+                                    <p>{{ 'home.hero_text'|trans({}, 'pages') }}</p>
+                                    <div class="btn-box">
+                                        <a href="{{ path('app_contact') }}" class="btn1">{{ 'home.contact_us'|trans({}, 'pages') }}</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<section class="about_section layout_margin-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="img-box">
+                    <img src="{{ asset('images/about-img.jpg') }}" alt="">
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="detail-box">
+                    <div class="heading_container">
+                        <h2>{{ 'about.title'|trans({}, 'pages') }} <span>{{ 'about.title_highlight'|trans({}, 'pages') }}</span></h2>
+                    </div>
+                    <p>{{ 'about.text1'|trans({}, 'pages') }}</p>
+                    <a href="{{ path('app_about') }}">{{ 'common.read_more'|trans }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'about.title'|trans({}, 'pages') }} {{ 'about.title_highlight'|trans({}, 'pages') }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+      <section class="about_section layout_padding">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6">
+                      <div class="img-box">
+                          <img src="{{ asset('images/about-img.jpg') }}" alt="">
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="detail-box">
+                          <div class="heading_container">
+                              <h2>{{ 'about.title'|trans({}, 'pages') }} <span>{{ 'about.title_highlight'|trans({}, 'pages') }}</span></h2>
+                          </div>
+                          <p>{{ 'about.text1'|trans({}, 'pages') }}</p>
+                          <p>{{ 'about.text2'|trans({}, 'pages') }}</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+  {% endblock %}
