@@ -16,6 +16,7 @@ use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
+use Psr\Log\LoggerInterface;
 
 final class PageController extends AbstractController
 {
@@ -65,6 +66,7 @@ final class PageController extends AbstractController
         ProductService $productService,
         HttpClientInterface $httpClient,
         MailerInterface $mailer,
+        LoggerInterface $logger,
         #[Autowire('%env(TURNSTILE_SITE_KEY)%')] string $turnstileSiteKey,
         #[Autowire('%env(TURNSTILE_SECRET_KEY)%')] string $turnstileSecretKey,
         #[Autowire('%app.email%')] string $appEmail
@@ -148,8 +150,32 @@ final class PageController extends AbstractController
 
                 try {
                     $mailer->send($email);
+
+                    // Send confirmation email to customer
+                    $customerEmail = (new Email())
+                        ->from($appEmail)
+                        ->to($dto->email)
+                        ->subject('Получихме Вашето запитване / We received your inquiry')
+                        ->html(sprintf(
+                            '<h2>Благодарим Ви за запитването!</h2>
+                            <p>Здравейте %s,</p>
+                            <p>Получихме Вашето запитване и ще се свържем с Вас възможно най-скоро.</p>
+                            <hr>
+                            <h2>Thank you for your inquiry!</h2>
+                            <p>Hello %s,</p>
+                            <p>We have received your inquiry and will contact you as soon as possible.</p>
+                            <hr>
+                            <p><em>stoma.bg</em></p>',
+                            htmlspecialchars($dto->name),
+                            htmlspecialchars($dto->name)
+                        ));
+                    $mailer->send($customerEmail);
                 } catch (\Exception $e) {
-                    // Log error but don't fail the request
+                    $logger->error('Failed to send email', [
+                        'error' => $e->getMessage(),
+                        'customer_email' => $dto->email,
+                        'customer_name' => $dto->name,
+                    ]);
                 }
 
                 $this->addFlash('success', 'Your message has been sent successfully!');
