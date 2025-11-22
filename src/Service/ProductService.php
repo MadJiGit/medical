@@ -99,8 +99,8 @@ class ProductService
             $name = $this->locale === 'en' ? $product->getNameEn() : $product->getNameBg();
 
             // Add manufacturer to distinguish similar products
-            if ($product->getManufacturer()) {
-                $name .= ' (' . $product->getManufacturer() . ')';
+            if ($product->getManufacturerName()) {
+                $name .= ' (' . $product->getManufacturerName() . ')';
             }
 
             $result[$product->getId()] = $name;
@@ -127,7 +127,7 @@ class ProductService
             'suitable_for' => $isEn ? $product->getSuitableForEn() : $product->getSuitableForBg(),
             'how_to_use' => $isEn ? $product->getHowToUseEn() : $product->getHowToUseBg(),
             'image' => $product->getImage(),
-            'manufacturer' => $product->getManufacturer(),
+            'manufacturer' => $product->getManufacturerName(),
             'nhif_code' => $product->getNhifCode(),
             'quantity' => $product->getQuantity(),
         ];

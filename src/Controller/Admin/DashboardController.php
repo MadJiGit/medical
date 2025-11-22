@@ -2,7 +2,10 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
 use App\Entity\ContactRequest;
+use App\Entity\Manufacturer;
+use App\Entity\Product;
 use App\Entity\Sample;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Attribute\AdminDashboard;
@@ -42,7 +45,8 @@ class DashboardController extends AbstractDashboardController
     public function configureAssets(): Assets
     {
         return Assets::new()
-            ->addCssFile('css/admin.css');
+            ->addCssFile('css/admin.css')
+            ->addJsFile('js/admin-columns.js');
     }
 
     public function configureMenuItems(): iterable
@@ -55,6 +59,11 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::linkToCrud('Contact Requests', 'fa fa-envelope', ContactRequest::class);
         yield MenuItem::linkToCrud('Samples', 'fa fa-box', Sample::class);
+
+        yield MenuItem::section('Catalog');
+        yield MenuItem::linkToCrud('Categories', 'fa fa-folder', Category::class);
+        yield MenuItem::linkToCrud('Products', 'fa fa-medkit', Product::class);
+        yield MenuItem::linkToCrud('Manufacturers', 'fa fa-industry', Manufacturer::class);
 
         yield MenuItem::section();
         yield MenuItem::linkToLogout('Logout', 'fa fa-sign-out');

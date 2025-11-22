@@ -7,10 +7,12 @@ use App\Repository\ContactRequestRepository;
 use App\Repository\UserRepository;
 use App\Service\ProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
+use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class PageController extends AbstractController
@@ -58,7 +60,10 @@ final class PageController extends AbstractController
         UserRepository $userRepository,
         ContactRequestRepository $contactRequestRepository,
         ValidatorInterface $validator,
-        ProductService $productService
+        ProductService $productService,
+        HttpClientInterface $httpClient,
+        #[Autowire('%env(TURNSTILE_SITE_KEY)%')] string $turnstileSiteKey,
+        #[Autowire('%env(TURNSTILE_SECRET_KEY)%')] string $turnstileSecretKey
     ): Response {
         $errors = [];
         $dto = new ContactFormDTO();
@@ -71,6 +76,27 @@ final class PageController extends AbstractController
         $selectedProduct = $request->query->get('product');
 
         if ($request->isMethod('POST')) {
+            // Verify Turnstile token
+            $turnstileToken = $request->request->get('cf-turnstile-response');
+            $turnstileValid = false;
+
+            if ($turnstileToken) {
+                $response = $httpClient->request('POST', 'https://challenges.cloudflare.com/turnstile/v0/siteverify', [
+                    'body' => [
+                        'secret' => $turnstileSecretKey,
+                        'response' => $turnstileToken,
+                        'remoteip' => $request->getClientIp(),
+                    ],
+                ]);
+
+                $result = $response->toArray();
+                $turnstileValid = $result['success'] ?? false;
+            }
+
+            if (!$turnstileValid) {
+                $errors[] = 'Security verification failed. Please try again.';
+            }
+
             // Populate DTO
             $dto->name = trim($request->request->get('name'));
             $dto->email = trim($request->request->get('email'));
@@ -85,7 +111,9 @@ final class PageController extends AbstractController
                 foreach ($violations as $violation) {
                     $errors[] = $violation->getMessage();
                 }
-            } else {
+            }
+
+            if (empty($errors)) {
                 // Find or create User
                 $user = $userRepository->findOrCreateClient($dto->email, $dto->name, $dto->phone);
 
@@ -104,6 +132,7 @@ final class PageController extends AbstractController
             'form' => $dto,
             'products' => $products,
             'selectedProduct' => $selectedProduct,
+            'turnstile_site_key' => $turnstileSiteKey,
         ]);
     }
 }

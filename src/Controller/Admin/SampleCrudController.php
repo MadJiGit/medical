@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
@@ -17,6 +18,9 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\FormField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\DateTimeFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\BooleanFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Filter\TextFilter;
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
 use Symfony\Component\HttpFoundation\RequestStack;
 
@@ -38,7 +42,20 @@ class SampleCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
+            ->setSearchFields(['user.email', 'user.name', 'recipientName', 'recipientPhone', 'shippingCity', 'sampleManufacture'])
+            ->setDefaultSort(['id' => 'DESC'])
             ->showEntityActionsInlined();
+    }
+
+    public function configureFilters(Filters $filters): Filters
+    {
+        return $filters
+            ->add(TextFilter::new('sampleManufacture', 'Manufacturer'))
+            ->add(BooleanFilter::new('sentSample', 'Sent'))
+            ->add(BooleanFilter::new('confirmReceivedSample', 'Received'))
+            ->add(BooleanFilter::new('returnedSample', 'Returned'))
+            ->add(DateTimeFilter::new('sentDate', 'Sent Date'))
+            ->add(DateTimeFilter::new('confirmReceivedDate', 'Received Date'));
     }
 
     public function createEntity(string $entityFqcn)

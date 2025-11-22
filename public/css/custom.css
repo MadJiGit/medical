@@ -71,6 +71,18 @@
     appearance: menulist;
 }
 
+.contact_section .form_container textarea.message-box {
+    width: 100%;
+    border: none;
+    padding: 15px;
+    margin-bottom: 15px;
+    outline: none;
+    color: #101010;
+    background: #eeeeee;
+    resize: vertical;
+    font-family: inherit;
+}
+
 /* Products page styling */
 .category-section {
     margin-bottom: 50px;

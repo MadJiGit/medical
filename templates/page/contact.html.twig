@@ -11,22 +11,30 @@
             <h2>{{ 'contact.title'|trans }}</h2>
         </div>
 
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success">{{ message }}</div>
-        {% endfor %}
-
-        {% if errors is defined and errors|length > 0 %}
-            <div class="alert alert-danger">
-                <ul class="mb-0">
-                    {% for error in errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-        {% endif %}
-
         <div class="row">
             <div class="col-md-6">
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endfor %}
+
+                {% if errors is defined and errors|length > 0 %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        <ul class="mb-0">
+                            {% for error in errors %}
+                                <li>{{ error }}</li>
+                            {% endfor %}
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                {% endif %}
+
                 <div class="form_container contact-form">
                     <form action="" method="post">
                         <div class="form-row">
@@ -53,7 +61,7 @@
                             </select>
                         </div>
                         <div>
-                            <input type="text" name="message" class="message-box" placeholder="{{ 'contact.message'|trans }}" value="{{ form.message }}" required />
+                            <textarea name="message" class="message-box" placeholder="{{ 'contact.message'|trans }}" rows="5" required>{{ form.message }}</textarea>
                         </div>
                         <div class="form-check mt-3 mb-3">
                             <input type="checkbox" class="form-check-input" id="gdprConsent" name="gdpr_consent" required />
@@ -61,6 +69,7 @@
                                 {{ 'contact.gdpr_consent'|trans|raw }}
                             </label>
                         </div>
+                        <div class="cf-turnstile mb-3" data-sitekey="{{ turnstile_site_key }}"></div>
                         <div class="btn_box">
                             <button type="submit">{{ 'contact.send'|trans }}</button>
                         </div>
@@ -70,4 +79,20 @@
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+<script>
+// Auto-hide alerts after 5 seconds
+document.addEventListener('DOMContentLoaded', function() {
+    setTimeout(function() {
+        var alerts = document.querySelectorAll('.alert');
+        alerts.forEach(function(alert) {
+            $(alert).alert('close');
+        });
+    }, 5000);
+});
+</script>
 {% endblock %}

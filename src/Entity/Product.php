@@ -61,8 +61,9 @@ class Product
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $image = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $manufacturer = null;
+    #[ORM\ManyToOne(inversedBy: 'products')]
+    #[ORM\JoinColumn(nullable: true)]
+    private ?Manufacturer $manufacturerEntity = null;
 
     #[ORM\Column(length: 50, nullable: true)]
     private ?string $nhifCode = null;
@@ -261,15 +262,21 @@ class Product
         return $this;
     }
 
-    public function getManufacturer(): ?string
+    public function getManufacturerEntity(): ?Manufacturer
     {
-        return $this->manufacturer;
+        return $this->manufacturerEntity;
     }
 
-    public function setManufacturer(?string $manufacturer): static
+    public function setManufacturerEntity(?Manufacturer $manufacturerEntity): static
     {
-        $this->manufacturer = $manufacturer;
+        $this->manufacturerEntity = $manufacturerEntity;
         return $this;
+    }
+
+    // Helper method for display
+    public function getManufacturerName(): ?string
+    {
+        return $this->manufacturerEntity?->getName();
     }
 
     public function getNhifCode(): ?string

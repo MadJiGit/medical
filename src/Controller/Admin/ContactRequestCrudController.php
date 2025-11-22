@@ -39,6 +39,7 @@ class ContactRequestCrudController extends AbstractCrudController
         return $crud
             ->setEntityLabelInSingular('Contact Request')
             ->setEntityLabelInPlural('Contact Requests')
+            ->setSearchFields(['user.email', 'user.name', 'user.phone', 'message'])
             ->setDefaultSort(['createdAt' => 'DESC'])
             ->showEntityActionsInlined();
     }

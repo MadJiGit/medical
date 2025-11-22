@@ -5,6 +5,7 @@ namespace App\Command;
 use App\Entity\Category;
 use App\Entity\Product;
 use App\Repository\CategoryRepository;
+use App\Repository\ManufacturerRepository;
 use App\Repository\ProductRepository;
 use Symfony\Component\Console\Attribute\AsCommand;
 use Symfony\Component\Console\Command\Command;
@@ -22,6 +23,7 @@ class ImportProductsCommand extends Command
     public function __construct(
         private CategoryRepository $categoryRepository,
         private ProductRepository $productRepository,
+        private ManufacturerRepository $manufacturerRepository,
         private ParameterBagInterface $params
     ) {
         parent::__construct();
@@ -91,7 +93,13 @@ class ImportProductsCommand extends Command
             $product->setHowToUseBg($productData['how_to_use_bg'] ?? null);
             $product->setHowToUseEn($productData['how_to_use_en'] ?? null);
             $product->setImage($productData['image'] ?? null);
-            $product->setManufacturer($productData['manufacturer'] ?? null);
+
+            // Set manufacturer via entity
+            if (!empty($productData['manufacturer'])) {
+                $manufacturer = $this->manufacturerRepository->findOrCreateByName($productData['manufacturer']);
+                $product->setManufacturerEntity($manufacturer);
+            }
+
             $product->setNhifCode($productData['nhif_code'] ?? null);
             $product->setQuantity($productData['quantity'] ?? 0);
             $product->setIsActive($productData['is_active'] ?? true);
