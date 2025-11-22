@@ -28,6 +28,7 @@ class ManufacturerRepository extends ServiceEntityRepository
             $manufacturer->setSlug($slug);
 
             $this->getEntityManager()->persist($manufacturer);
+            $this->getEntityManager()->flush();
         }
 
         return $manufacturer;
