@@ -17,6 +17,7 @@ use Symfony\Contracts\Translation\TranslatorInterface;
 use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Psr\Log\LoggerInterface;
+use Symfony\Component\RateLimiter\RateLimiterFactory;
 
 final class PageController extends AbstractController
 {
@@ -67,12 +68,19 @@ final class PageController extends AbstractController
         HttpClientInterface $httpClient,
         MailerInterface $mailer,
         LoggerInterface $logger,
+        RateLimiterFactory $contactFormLimiter,
         #[Autowire('%env(TURNSTILE_SITE_KEY)%')] string $turnstileSiteKey,
         #[Autowire('%env(TURNSTILE_SECRET_KEY)%')] string $turnstileSecretKey,
         #[Autowire('%app.email%')] string $appEmail
     ): Response {
         $errors = [];
         $dto = new ContactFormDTO();
+
+        // Rate limiting check (only on POST)
+        $limiter = $contactFormLimiter->create($request->getClientIp());
+        if ($request->isMethod('POST') && false === $limiter->consume(1)->isAccepted()) {
+            $errors[] = 'Too many requests. Please try again in 15 minutes.';
+        }
 
         // Set locale for products
         $productService->setLocale($request->getLocale());
