@@ -14,6 +14,8 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Validator\Validator\ValidatorInterface;
 use Symfony\Contracts\HttpClient\HttpClientInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
+use Symfony\Component\Mailer\MailerInterface;
+use Symfony\Component\Mime\Email;
 
 final class PageController extends AbstractController
 {
@@ -62,8 +64,10 @@ final class PageController extends AbstractController
         ValidatorInterface $validator,
         ProductService $productService,
         HttpClientInterface $httpClient,
+        MailerInterface $mailer,
         #[Autowire('%env(TURNSTILE_SITE_KEY)%')] string $turnstileSiteKey,
-        #[Autowire('%env(TURNSTILE_SECRET_KEY)%')] string $turnstileSecretKey
+        #[Autowire('%env(TURNSTILE_SECRET_KEY)%')] string $turnstileSecretKey,
+        #[Autowire('%app.email%')] string $appEmail
     ): Response {
         $errors = [];
         $dto = new ContactFormDTO();
@@ -120,6 +124,33 @@ final class PageController extends AbstractController
                 // Create ContactRequest
                 $contactRequestRepository->createContactRequest($user, $dto->message, $dto->product_id);
                 $contactRequestRepository->save();
+
+                // Send email notification
+                $productName = $dto->product_id ? ($products[$dto->product_id] ?? 'N/A') : 'N/A';
+                $email = (new Email())
+                    ->from($appEmail)
+                    ->to($appEmail)
+                    ->subject('New Contact Request from ' . $dto->name)
+                    ->html(sprintf(
+                        '<h2>New Contact Request</h2>
+                        <p><strong>Name:</strong> %s</p>
+                        <p><strong>Email:</strong> %s</p>
+                        <p><strong>Phone:</strong> %s</p>
+                        <p><strong>Product:</strong> %s</p>
+                        <p><strong>Message:</strong></p>
+                        <p>%s</p>',
+                        htmlspecialchars($dto->name),
+                        htmlspecialchars($dto->email),
+                        htmlspecialchars($dto->phone ?? 'N/A'),
+                        htmlspecialchars($productName),
+                        nl2br(htmlspecialchars($dto->message))
+                    ));
+
+                try {
+                    $mailer->send($email);
+                } catch (\Exception $e) {
+                    // Log error but don't fail the request
+                }
 
                 $this->addFlash('success', 'Your message has been sent successfully!');
 
