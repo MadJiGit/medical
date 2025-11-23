@@ -45,3 +45,5 @@ for_claude.txt
 products.json
 .env.dev
 ###< project specific ###
+public/.htaccess
+error_log
