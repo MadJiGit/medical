@@ -41,6 +41,7 @@ yarn-error.log
 
 ###> project specific ###
 ARCHITECTURE.md
+CLAUDE.md
 for_claude.txt
 products.json
 .env.dev
