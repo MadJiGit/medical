@@ -3,7 +3,11 @@
 namespace App\Controller;
 
 use App\DTO\ContactFormDTO;
+use App\Repository\BlogCategoryRepository;
+use App\Repository\BlogPostRepository;
 use App\Repository\ContactRequestRepository;
+use App\Repository\VideoCategoryRepository;
+use App\Repository\VideoRepository;
 use App\Repository\UserRepository;
 use App\Service\ProductService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,6 +25,55 @@ use Symfony\Component\RateLimiter\RateLimiterFactory;
 
 final class PageController extends AbstractController
 {
+    #[Route('/blog', name: 'app_blog')]
+    public function blog(BlogCategoryRepository $categoryRepo, BlogPostRepository $postRepo): Response
+    {
+        $categories = $categoryRepo->findAllActive();
+        $posts = $postRepo->findAllActive();
+
+        return $this->render('page/blog.html.twig', [
+            'categories' => $categories,
+            'posts'      => $posts,
+        ]);
+    }
+
+    #[Route('/blog/{slug}', name: 'app_blog_show')]
+    public function blogShow(string $slug, BlogPostRepository $postRepo): Response
+    {
+        $post = $postRepo->findActiveBySlug($slug);
+
+        if (!$post) {
+            throw $this->createNotFoundException();
+        }
+
+        $catPosts = $postRepo->findActiveByCategory($post->getCategory()->getId());
+        $catIndex = null;
+        foreach ($catPosts as $i => $p) {
+            if ($p->getSlug() === $slug) {
+                $catIndex = $i;
+                break;
+            }
+        }
+
+        return $this->render('page/blog_show.html.twig', [
+            'post' => $post,
+            'prev' => $catIndex > 0 ? $catPosts[$catIndex - 1] : null,
+            'next' => $catIndex !== null && $catIndex < count($catPosts) - 1 ? $catPosts[$catIndex + 1] : null,
+        ]);
+    }
+
+    #[Route('/video', name: 'app_video')]
+    public function video(VideoCategoryRepository $categoryRepo, VideoRepository $videoRepo): Response
+    {
+        $categories = $categoryRepo->findAllActive();
+        $videos = $videoRepo->findAllActive();
+
+        return $this->render('page/video.html.twig', [
+            'categories' => $categories,
+            'videos'     => $videos,
+        ]);
+    }
+
     #[Route('/about', name: 'app_about')]
     public function about(): Response
     {
@@ -30,7 +83,7 @@ final class PageController extends AbstractController
     #[Route('/faq', name: 'app_faq')]
     public function faq(): Response
     {
-        return $this->render('page/faq.html.twig');
+        return $this->redirectToRoute('app_blog');
     }
 
     #[Route('/terms', name: 'app_terms')]

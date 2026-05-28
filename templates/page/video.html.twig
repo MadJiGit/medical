@@ -1,0 +1,91 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.video'|trans }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'nav.video'|trans }}</h2>
+        </div>
+
+        <ul class="nav nav-tabs video-tabs mb-4" id="videoTabs" role="tablist">
+            {% for cat in categories %}
+            <li class="nav-item">
+                <a class="nav-link {{ loop.first ? 'active' : '' }}"
+                   id="tab-{{ cat.slug }}"
+                   data-toggle="tab"
+                   href="#pane-{{ cat.slug }}"
+                   role="tab">
+                    {{ app.request.locale == 'bg' ? cat.labelBg : cat.labelEn }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content" id="videoTabsContent">
+            {% for cat in categories %}
+            {% set cat_videos = videos|filter(v => v.category.slug == cat.slug) %}
+            <div class="tab-pane fade {{ loop.first ? 'show active' : '' }}"
+                 id="pane-{{ cat.slug }}"
+                 role="tabpanel">
+                <div class="row">
+                    {% if cat_videos|length == 0 %}
+                        <div class="col-12">
+                            <p class="text-muted">{{ 'video.coming_soon'|trans({}, 'pages') }}</p>
+                        </div>
+                    {% else %}
+                        {% for video in cat_videos %}
+                        <div class="col-md-4 mb-4">
+                            <div class="video-card" data-toggle="modal" data-target="#videoModal"
+                                 data-embed-url="{{ video.embedUrl }}"
+                                 data-source-type="{{ video.sourceType }}"
+                                 data-source-id="{{ video.sourceId }}"
+                                 data-video-title="{{ app.request.locale == 'bg' ? video.titleBg : video.titleEn }}">
+                                <div class="video-thumbnail">
+                                    <img src="{{ video.thumbnailUrl }}"
+                                         alt="{{ app.request.locale == 'bg' ? video.titleBg : video.titleEn }}">
+                                    <div class="video-play-overlay">
+                                        <div class="video-play-btn">
+                                            <i class="fa fa-play"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="video-card-body">
+                                    <p class="video-title">{{ app.request.locale == 'bg' ? video.titleBg : video.titleEn }}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    {% endif %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content video-modal-content">
+            <div class="modal-header video-modal-header">
+                <h5 class="modal-title" id="videoModalTitle"></h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="videoIframe" class="embed-responsive-item"
+                            src="" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

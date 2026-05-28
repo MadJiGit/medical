@@ -47,3 +47,43 @@ function myMap() {
     };
     var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Video modal — /video page
+    var videoModal = document.getElementById('videoModal');
+    if (videoModal) {
+        $(videoModal).on('show.bs.modal', function (e) {
+            var btn = $(e.relatedTarget);
+            $('#videoModalTitle').text(btn.data('video-title'));
+            $('#videoIframe').attr('src', btn.data('embed-url'));
+        });
+        $(videoModal).on('hidden.bs.modal', function () {
+            $('#videoIframe').attr('src', '');
+            $('#videoModalTitle').text('');
+        });
+    }
+
+    // Video modal — homepage
+    var homeVideoModal = document.getElementById('homeVideoModal');
+    if (homeVideoModal) {
+        $(homeVideoModal).on('show.bs.modal', function (e) {
+            var btn = $(e.relatedTarget);
+            $('#homeVideoModalTitle').text(btn.data('video-title'));
+            $('#homeVideoIframe').attr('src', btn.data('embed-url'));
+        });
+        $(homeVideoModal).on('hidden.bs.modal', function () {
+            $('#homeVideoIframe').attr('src', '');
+            $('#homeVideoModalTitle').text('');
+        });
+    }
+
+    // Auto-hide alerts — /contact page
+    var alerts = document.querySelectorAll('.alert');
+    if (alerts.length > 0) {
+        setTimeout(function () {
+            alerts.forEach(function (alert) {
+                $(alert).alert('close');
+            });
+        }, 5000);
+    }
+});

@@ -14,6 +14,7 @@ class ContactFormDTO
     #[Assert\Email(message: 'Please enter a valid email')]
     public ?string $email = null;
 
+    #[Assert\NotBlank(message: 'Phone is required')]
     #[Assert\Length(max: 50)]
     public ?string $phone = null;
 

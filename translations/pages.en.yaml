@@ -1,9 +1,23 @@
+# Blog Page
+blog:
+    coming_soon: 'Stay tuned for new articles and useful information about medical consumables.'
+    read_more: 'Read article'
+    contact_hint: 'Have a question? Contact us'
+
+# Video Page
+video:
+    coming_soon: 'Stay tuned — here you will find educational and informational videos about medical consumables.'
+
 # Home Page
 home:
     title: 'Home'
-    hero_title: 'We Provide Best Healthcare'
-    hero_text: 'Your trusted partner for medical product information and samples.'
+    hero_title: 'Information & Support for Life with Ostomy'
+    hero_text: 'Useful articles, videos, and answers to your questions — for a more confident and fulfilling life.'
     contact_us: 'Contact Us'
+    latest_posts: 'Latest Articles'
+    latest_videos: 'Latest Videos'
+    view_all_posts: 'All Articles'
+    view_all_videos: 'All Videos'
 
 # Products Page
 products:
@@ -106,7 +120,7 @@ privacy:
     title: 'Privacy Policy'
     content: |
         <h3>1. Data Controller</h3>
-        <p>The controller of your personal data is Medical. For questions regarding personal data processing, please contact us at: <strong>%app_email%</strong></p>
+        <p>The controller of your personal data is the individual operating the Medical website, with Personal ID (EGN) <strong>1234567890</strong>. For questions regarding personal data processing, please contact us at: <strong>%app_email%</strong></p>
 
         <h3>2. What Data We Collect</h3>
         <p>We collect the following categories of personal data:</p>
@@ -131,13 +145,16 @@ privacy:
         <ul>
             <li><strong>Consent (Art. 6(1)(a) GDPR):</strong> When you submit a contact form, you give explicit consent for processing your data.</li>
             <li><strong>Contract performance (Art. 6(1)(b) GDPR):</strong> For shipping requested samples.</li>
-            <li><strong>Legitimate interest (Art. 6(1)(f) GDPR):</strong> For improving our services.</li>
+            <li><strong>Legitimate interest (Art. 6(1)(f) GDPR):</strong> For improving the quality of our services and optimising sample distribution based on analysis of submitted requests. Our legitimate interest does not override the reasonable expectations of data subjects.</li>
         </ul>
 
-        <h3>5. Data Retention Period</h3>
+        <h3>5. Mandatory Nature of Data Provision</h3>
+        <p>Providing personal data through the contact form is <strong>voluntary</strong>, but necessary to receive the requested service. The fields "Name", "Email", "Phone" and "Message" are required to process your request. If these details are not provided, we will be unable to send a sample or respond to your inquiry.</p>
+
+        <h3>6. Data Retention Period</h3>
         <p>We store your personal data for a period of <strong>2 years</strong> after your last request, unless the law requires a longer period. After this period, data is deleted or anonymized.</p>
 
-        <h3>6. Data Sharing</h3>
+        <h3>7. Data Sharing</h3>
         <p>We do not sell, rent, or share your personal data with third parties, except:</p>
         <ul>
             <li>Courier companies - for sample delivery</li>
@@ -145,7 +162,13 @@ privacy:
             <li>When legally required by competent authorities</li>
         </ul>
 
-        <h3>7. Your Rights</h3>
+        <h3>8. International Data Transfers</h3>
+        <p>Your personal data is <strong>not transferred</strong> to third countries outside the European Union or the European Economic Area. All data is stored and processed exclusively within the EU/EEA.</p>
+
+        <h3>9. Automated Decision-Making and Profiling</h3>
+        <p>We do not carry out automated decision-making, including profiling, within the meaning of Art. 22 GDPR. All decisions related to the processing of your requests are made by a person.</p>
+
+        <h3>10. Your Rights</h3>
         <p>Under GDPR, you have the following rights:</p>
         <ul>
             <li><strong>Right of access:</strong> You can request a copy of your personal data.</li>
@@ -154,10 +177,10 @@ privacy:
             <li><strong>Right to restriction of processing:</strong> You can request restriction of processing under certain circumstances.</li>
             <li><strong>Right to data portability:</strong> You can receive your data in a structured, machine-readable format.</li>
             <li><strong>Right to object:</strong> You can object to the processing of your data.</li>
-            <li><strong>Right to withdraw consent:</strong> You can withdraw your consent at any time.</li>
+            <li><strong>Right to withdraw consent:</strong> You can withdraw your consent at any time, without affecting the lawfulness of processing carried out prior to withdrawal.</li>
         </ul>
 
-        <h3>8. How to Exercise Your Rights</h3>
+        <h3>11. How to Exercise Your Rights</h3>
         <p>To exercise any of your rights or request deletion of your data, please contact us:</p>
         <ul>
             <li><strong>Email:</strong> %app_email%</li>
@@ -165,7 +188,7 @@ privacy:
         </ul>
         <p>We will respond to your request within <strong>30 days</strong>. We may request additional information to verify your identity.</p>
 
-        <h3>9. Data Security</h3>
+        <h3>12. Data Security</h3>
         <p>We implement appropriate technical and organizational measures to protect your data, including:</p>
         <ul>
             <li>SSL encryption of all communications</li>
@@ -173,15 +196,15 @@ privacy:
             <li>Regular backup and database protection</li>
         </ul>
 
-        <h3>10. Cookies</h3>
+        <h3>13. Cookies</h3>
         <p>Our website uses only technically necessary cookies for site functionality (e.g., for storing language preferences). We do not use tracking or marketing cookies.</p>
 
-        <h3>11. Right to Lodge a Complaint</h3>
+        <h3>14. Right to Lodge a Complaint</h3>
         <p>If you believe that the processing of your data violates GDPR, you have the right to lodge a complaint with the Commission for Personal Data Protection:</p>
         <ul>
             <li><strong>Address:</strong> 2 Prof. Tsvetan Lazarov Blvd., Sofia 1592, Bulgaria</li>
             <li><strong>Website:</strong> <a href="https://www.cpdp.bg" target="_blank">www.cpdp.bg</a></li>
         </ul>
 
-        <h3>12. Policy Changes</h3>
+        <h3>15. Policy Changes</h3>
         <p>We reserve the right to update this policy. For significant changes, we will post a notice on the website. We recommend regularly reviewing this page.</p>

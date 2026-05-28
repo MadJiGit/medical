@@ -2,7 +2,11 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\BlogCategory;
+use App\Entity\BlogPost;
 use App\Entity\Category;
+use App\Entity\Video;
+use App\Entity\VideoCategory;
 use App\Entity\ContactRequest;
 use App\Entity\Manufacturer;
 use App\Entity\Product;
@@ -57,6 +61,15 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Users', 'fa fa-users', User::class);
         }
 
+        yield MenuItem::section('Blog');
+        yield MenuItem::linkToCrud('Blog Categories', 'fa fa-folder-open', BlogCategory::class);
+        yield MenuItem::linkToCrud('Blog Posts', 'fa fa-newspaper-o', BlogPost::class);
+
+        yield MenuItem::section('Video');
+        yield MenuItem::linkToCrud('Video Categories', 'fa fa-folder-open', VideoCategory::class);
+        yield MenuItem::linkToCrud('Videos', 'fa fa-video-camera', Video::class);
+
+        yield MenuItem::section('Communication');
         yield MenuItem::linkToCrud('Contact Requests', 'fa fa-envelope', ContactRequest::class);
         yield MenuItem::linkToCrud('Samples', 'fa fa-box', Sample::class);
 

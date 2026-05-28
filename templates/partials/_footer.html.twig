@@ -38,27 +38,22 @@
                     <div class="footer_links">
                         <a href="{{ path('app_home') }}">{{ 'nav.home'|trans }}</a>
                         <a href="{{ path('app_about') }}">{{ 'nav.about'|trans }}</a>
-                        <a href="{{ path('app_products') }}">{{ 'nav.products'|trans }}</a>
+                        {# HIDDEN: <a href="{{ path('app_products') }}">{{ 'nav.products'|trans }}</a> #}
                         <a href="{{ path('app_contact') }}">{{ 'nav.contact'|trans }}</a>
-                        <a href="{{ path('app_faq') }}">{{ 'nav.faq'|trans }}</a>
+                        {# HIDDEN: FAQ - merged into Blog #}
                         <a href="{{ path('app_terms') }}">{{ 'nav.terms'|trans }}</a>
                         <a href="{{ path('app_privacy') }}">{{ 'nav.privacy'|trans }}</a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="footer-info">
-            <p>&copy; {{ "now"|date("Y") }} {{ 'footer.all_rights'|trans }}</p>
-            <p class="mt-2" style="font-size: 0.85em; opacity: 0.8;">
-                Template by <a href="https://themewagon.com" target="_blank" rel="noopener" style="color: inherit; text-decoration: underline;">ThemeWagon</a>
-            </p>
-        </div>
-        <!-- Developer credit (centered) -->
-        <div class="text-center mt-3">
-            <div class="d-inline-flex align-items-center gap-2">
-                {{ 'footer.developed_by'|trans }}&nbsp;&nbsp;<a href="https://mladenraykov.com" target="_blank">
-                    <img class="madji-img-footer" src="{{ asset('images/logos/logo-no-background.png') }}" alt="MADJI logo" class="logo-mini">
-                </a>
+        <div class="footer-bottom">
+            <div class="footer-bottom-inner">
+                <span>&copy; {{ "now"|date("Y") }} {{ 'footer.all_rights'|trans }}</span>
+                <span class="footer-sep">&middot;</span>
+                <span>Template by <a href="https://themewagon.com" target="_blank" rel="noopener">ThemeWagon</a></span>
+                <span class="footer-sep">&middot;</span>
+                <span>{{ 'footer.developed_by'|trans }}&nbsp;<a href="https://mladenraykov.com" target="_blank" rel="noopener"><img class="madji-img-footer" src="{{ asset('images/logos/logo-no-background.png') }}" alt="MADJI logo"></a></span>
             </div>
         </div>
     </div>

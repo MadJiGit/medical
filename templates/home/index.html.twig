@@ -33,6 +33,74 @@
     </section>
 </div>
 
+{# Latest Blog Posts #}
+{% if latest_posts|length > 0 %}
+<section class="layout_padding layout_padding-bottom">
+    <div class="container">
+        <div class="heading_container d-flex justify-content-between align-items-center">
+            <h2>{{ 'home.latest_posts'|trans({}, 'pages') }}</h2>
+            <a href="{{ path('app_blog') }}" class="blog-read-more">
+                {{ 'home.view_all_posts'|trans({}, 'pages') }} <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="row">
+            {% for post in latest_posts %}
+            <div class="col-md-4 mb-4">
+                <div class="blog-card">
+                    <div class="blog-card-top"></div>
+                    <div class="blog-card-body">
+                        <p class="blog-card-date">{{ post.createdAt|date('d.m.Y') }}</p>
+                        <h5 class="blog-card-title">{{ post.titleBg }}</h5>
+                        <p class="blog-card-excerpt">{{ post.excerptBg }}</p>
+                        <a href="{{ path('app_blog_show', {slug: post.slug}) }}" class="blog-read-more">
+                            {{ 'blog.read_more'|trans({}, 'pages') }} <i class="fa fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# Latest Videos #}
+{% if latest_videos|length > 0 %}
+<section class="layout_padding layout_padding-bottom home-videos-section">
+    <div class="container">
+        <div class="heading_container d-flex justify-content-between align-items-center">
+            <h2>{{ 'home.latest_videos'|trans({}, 'pages') }}</h2>
+            <a href="{{ path('app_video') }}" class="blog-read-more">
+                {{ 'home.view_all_videos'|trans({}, 'pages') }} <i class="fa fa-arrow-right"></i>
+            </a>
+        </div>
+        <div class="row">
+            {% for video in latest_videos %}
+            <div class="col-md-4 mb-4">
+                <div class="video-card" data-toggle="modal" data-target="#homeVideoModal"
+                     data-embed-url="{{ video.embedUrl }}"
+                     data-video-title="{{ app.request.locale == 'bg' ? video.titleBg : video.titleEn }}">
+                    <div class="video-thumbnail">
+                        <img src="{{ video.thumbnailUrl }}"
+                             alt="{{ app.request.locale == 'bg' ? video.titleBg : video.titleEn }}">
+                        <div class="video-play-overlay">
+                            <div class="video-play-btn">
+                                <i class="fa fa-play"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="video-card-body">
+                        <p class="video-title">{{ app.request.locale == 'bg' ? video.titleBg : video.titleEn }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}
+
+{# About — кратко #}
 <section class="about_section layout_margin-bottom">
     <div class="container">
         <div class="row">
@@ -53,4 +121,27 @@
         </div>
     </div>
 </section>
+
+{# Video modal for homepage #}
+<div class="modal fade" id="homeVideoModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content video-modal-content">
+            <div class="modal-header video-modal-header">
+                <h5 class="modal-title" id="homeVideoModalTitle"></h5>
+                <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body p-0">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe id="homeVideoIframe" class="embed-responsive-item"
+                            src="" allowfullscreen
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 {% endblock %}
+

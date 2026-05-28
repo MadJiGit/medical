@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ app.request.locale == 'en' ? post.titleEn : post.titleBg }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="layout_padding">
+    <div class="container">
+
+        <div class="blog-show-header">
+            <a href="{{ path('app_blog') }}" class="blog-back-link">
+                <i class="fa fa-arrow-left"></i> {{ 'nav.blog'|trans }}
+            </a>
+            <p class="blog-show-date">{{ post.createdAt|date('d.m.Y') }}</p>
+            {% set locale = app.request.locale %}
+            <h1 class="blog-show-title">{{ locale == 'en' ? post.titleEn : post.titleBg }}</h1>
+            {% set excerpt = locale == 'en' ? post.excerptEn : post.excerptBg %}
+            {% if excerpt %}
+                <p class="blog-show-excerpt">{{ excerpt }}</p>
+            {% endif %}
+        </div>
+
+        <div class="blog-show-content">
+            {% set content = locale == 'en' ? post.contentEn : post.contentBg %}
+            {% if content %}
+                {{ content|raw }}
+            {% else %}
+                <p class="text-muted">{{ 'blog.coming_soon'|trans({}, 'pages') }}</p>
+            {% endif %}
+        </div>
+
+        <div class="blog-show-nav">
+            <div class="blog-nav-prev">
+                {% if prev is not null %}
+                    <a href="{{ path('app_blog_show', {slug: prev.slug}) }}" class="blog-nav-btn">
+                        <i class="fa fa-chevron-left"></i>
+                        <span>{{ locale == 'en' ? prev.titleEn : prev.titleBg }}</span>
+                    </a>
+                {% endif %}
+            </div>
+            <div class="blog-contact-hint">
+                <i class="fa fa-envelope"></i>
+                <a href="{{ path('app_contact') }}">{{ 'blog.contact_hint'|trans({}, 'pages') }}</a>
+            </div>
+            <div class="blog-nav-next">
+                {% if next is not null %}
+                    <a href="{{ path('app_blog_show', {slug: next.slug}) }}" class="blog-nav-btn">
+                        <span>{{ locale == 'en' ? next.titleEn : next.titleBg }}</span>
+                        <i class="fa fa-chevron-right"></i>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+
+    </div>
+</section>
+{% endblock %}

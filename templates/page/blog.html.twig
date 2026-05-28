@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'nav.blog'|trans }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'nav.blog'|trans }}</h2>
+        </div>
+
+        <ul class="nav nav-tabs video-tabs mb-4" role="tablist">
+            {% for cat in categories %}
+            <li class="nav-item">
+                <a class="nav-link {{ loop.first ? 'active' : '' }}"
+                   data-toggle="tab"
+                   href="#blog-pane-{{ cat.slug }}"
+                   role="tab">
+                    {{ app.request.locale == 'bg' ? cat.labelBg : cat.labelEn }}
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+
+        <div class="tab-content">
+            {% for cat in categories %}
+            {% set cat_posts = posts|filter(p => p.category.slug == cat.slug) %}
+            <div class="tab-pane fade {{ loop.first ? 'show active' : '' }}"
+                 id="blog-pane-{{ cat.slug }}"
+                 role="tabpanel">
+                <div class="row">
+                    {% for post in cat_posts %}
+                    <div class="col-md-4 mb-4">
+                        <div class="blog-card">
+                            <div class="blog-card-top"></div>
+                            <div class="blog-card-body">
+                                <p class="blog-card-date">{{ post.createdAt|date('d.m.Y') }}</p>
+                                <h5 class="blog-card-title">{{ app.request.locale == 'en' ? post.titleEn : post.titleBg }}</h5>
+                                <p class="blog-card-excerpt">{{ app.request.locale == 'en' ? post.excerptEn : post.excerptBg }}</p>
+                                <a href="{{ path('app_blog_show', {slug: post.slug}) }}" class="blog-read-more">
+                                    {{ 'blog.read_more'|trans({}, 'pages') }} <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+{% endblock %}

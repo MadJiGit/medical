@@ -17,6 +17,7 @@
                     <li class="nav-item {{ app.request.attributes.get('_route') == 'app_about' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ path('app_about') }}">{{ 'nav.about'|trans }}</a>
                     </li>
+                    {# HIDDEN: Products tab - uncomment to restore
                     <li class="nav-item dropdown {{ app.request.attributes.get('_route') == 'app_products' ? 'active' : '' }}">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{ 'nav.products'|trans }}
@@ -30,11 +31,16 @@
                             {% endfor %}
                         </div>
                     </li>
+                    #}
                     <li class="nav-item {{ app.request.attributes.get('_route') == 'app_contact' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ path('app_contact') }}">{{ 'nav.contact'|trans }}</a>
                     </li>
-                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_faq' ? 'active' : '' }}">
-                        <a class="nav-link" href="{{ path('app_faq') }}">{{ 'nav.faq'|trans }}</a>
+                    {# HIDDEN: FAQ tab - merged into Blog #}
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_blog' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_blog') }}">{{ 'nav.blog'|trans }}</a>
+                    </li>
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_video' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_video') }}">{{ 'nav.video'|trans }}</a>
                     </li>
                     <li class="nav-item">
                         <span class="nav-link locale-switcher">
