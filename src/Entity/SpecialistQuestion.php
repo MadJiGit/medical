@@ -50,6 +50,24 @@ class SpecialistQuestion
     #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
     private ?Specialist $answeredBySpecialist = null;
 
+    #[ORM\Column(type: 'boolean', options: ['default' => true])]
+    private bool $showSpecialistName = true;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => true])]
+    private bool $showSpecialistTitle = true;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $showSpecialistInstitution = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $showSpecialistAddress = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $showSpecialistPhone = false;
+
+    #[ORM\Column(type: 'boolean', options: ['default' => false])]
+    private bool $showSpecialistEmail = false;
+
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $answeredAt = null;
 
@@ -65,6 +83,12 @@ class SpecialistQuestion
         $this->isAnonymous = false;
         $this->isPublic = false;
         $this->status = self::STATUS_NEW;
+        $this->showSpecialistName = true;
+        $this->showSpecialistTitle = true;
+        $this->showSpecialistInstitution = false;
+        $this->showSpecialistAddress = false;
+        $this->showSpecialistPhone = false;
+        $this->showSpecialistEmail = false;
     }
 
     public function __toString(): string
@@ -103,6 +127,24 @@ class SpecialistQuestion
 
     public function getAnsweredBySpecialist(): ?Specialist { return $this->answeredBySpecialist; }
     public function setAnsweredBySpecialist(?Specialist $answeredBySpecialist): static { $this->answeredBySpecialist = $answeredBySpecialist; return $this; }
+
+    public function isShowSpecialistName(): bool { return $this->showSpecialistName; }
+    public function setShowSpecialistName(bool $v): static { $this->showSpecialistName = $v; return $this; }
+
+    public function isShowSpecialistTitle(): bool { return $this->showSpecialistTitle; }
+    public function setShowSpecialistTitle(bool $v): static { $this->showSpecialistTitle = $v; return $this; }
+
+    public function isShowSpecialistInstitution(): bool { return $this->showSpecialistInstitution; }
+    public function setShowSpecialistInstitution(bool $v): static { $this->showSpecialistInstitution = $v; return $this; }
+
+    public function isShowSpecialistAddress(): bool { return $this->showSpecialistAddress; }
+    public function setShowSpecialistAddress(bool $v): static { $this->showSpecialistAddress = $v; return $this; }
+
+    public function isShowSpecialistPhone(): bool { return $this->showSpecialistPhone; }
+    public function setShowSpecialistPhone(bool $v): static { $this->showSpecialistPhone = $v; return $this; }
+
+    public function isShowSpecialistEmail(): bool { return $this->showSpecialistEmail; }
+    public function setShowSpecialistEmail(bool $v): static { $this->showSpecialistEmail = $v; return $this; }
 
     public function getAnsweredAt(): ?\DateTimeImmutable { return $this->answeredAt; }
     public function setAnsweredAt(?\DateTimeImmutable $answeredAt): static { $this->answeredAt = $answeredAt; return $this; }

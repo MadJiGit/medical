@@ -26,12 +26,20 @@
                             <span class="question-date">{{ q.answeredAt|date('d.m.Y') }}</span>
                         {% endif %}
                     </div>
-                    <p class="question-text">{{ q.question }}</p>
+                    <p class="question-text expandable-text">{{ q.question }}</p>
                     {% if q.answer %}
                     <div class="question-answer">
-                        <p>{{ q.answer }}</p>
+                        <p class="expandable-text">{{ q.answer }}</p>
                         {% if q.answeredBySpecialist %}
-                            <span class="question-answered-by">— {{ q.answeredBySpecialist.name }}</span>
+                            <div class="question-answered-by">
+                                {% set s = q.answeredBySpecialist %}
+                                {% if q.showSpecialistName %}<strong>{{ s.name }}</strong>{% endif %}
+                                {% if q.showSpecialistTitle and s.specialtyBg %}<span>{{ s.specialtyBg }}</span>{% endif %}
+                                {% if q.showSpecialistInstitution and s.institution %}<span>{{ s.institution }}</span>{% endif %}
+                                {% if q.showSpecialistAddress and s.address %}<span>{{ s.address }}</span>{% endif %}
+                                {% if q.showSpecialistPhone and s.phone %}<span>{{ s.phone }}</span>{% endif %}
+                                {% if q.showSpecialistEmail and s.email %}<a href="mailto:{{ s.email }}">{{ s.email }}</a>{% endif %}
+                            </div>
                         {% elseif q.answeredBy %}
                             <span class="question-answered-by">— {{ q.answeredBy }}</span>
                         {% endif %}

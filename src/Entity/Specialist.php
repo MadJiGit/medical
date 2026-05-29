@@ -41,6 +41,15 @@ class Specialist
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $institution = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $address = null;
+
+    #[ORM\Column(length: 50, nullable: true)]
+    private ?string $phone = null;
+
     #[ORM\Column(length: 255)]
     private ?string $email = null;
 
@@ -90,6 +99,15 @@ class Specialist
 
     public function getPhoto(): ?string { return $this->photo; }
     public function setPhoto(?string $photo): static { $this->photo = $photo; return $this; }
+
+    public function getInstitution(): ?string { return $this->institution; }
+    public function setInstitution(?string $institution): static { $this->institution = $institution; return $this; }
+
+    public function getAddress(): ?string { return $this->address; }
+    public function setAddress(?string $address): static { $this->address = $address; return $this; }
+
+    public function getPhone(): ?string { return $this->phone; }
+    public function setPhone(?string $phone): static { $this->phone = $phone; return $this; }
 
     public function getEmail(): ?string { return $this->email; }
     public function setEmail(string $email): static { $this->email = $email; return $this; }

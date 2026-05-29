@@ -100,4 +100,28 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // Expandable text — /questions page
+    var MAX_H = { question: 76, answer: 136 }; // px (~3 and ~5 lines)
+    document.querySelectorAll('.expandable-text').forEach(function (el) {
+        var isQuestion = el.classList.contains('question-text');
+        var maxH = isQuestion ? MAX_H.question : MAX_H.answer;
+        el.style.maxHeight = maxH + 'px';
+
+        if (el.scrollHeight <= el.clientHeight + 4) {
+            el.classList.remove('expandable-text');
+            el.style.maxHeight = '';
+            return;
+        }
+
+        var btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'expand-toggle';
+        btn.textContent = 'Покажи повече';
+        btn.addEventListener('click', function () {
+            var expanded = el.classList.toggle('expanded');
+            btn.textContent = expanded ? 'Скрий' : 'Покажи повече';
+        });
+        el.parentNode.insertBefore(btn, el.nextSibling);
+    });
 });

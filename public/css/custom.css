@@ -334,6 +334,52 @@ button.btn1:hover {
     font-size: 0.88rem;
 }
 
+/* Expandable question/answer text */
+.expandable-text {
+    overflow: hidden;
+    position: relative;
+    transition: max-height 0.3s ease;
+}
+
+.expandable-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2.2em;
+    pointer-events: none;
+}
+
+.expandable-text.expanded {
+    max-height: none !important;
+}
+
+.expandable-text.expanded::after {
+    display: none;
+}
+
+p.question-text.expandable-text::after {
+    background: linear-gradient(transparent, #fff);
+}
+
+.question-answer p.expandable-text::after {
+    background: linear-gradient(transparent, #f6fffd);
+}
+
+.expand-toggle {
+    display: inline-block;
+    background: none;
+    border: none;
+    color: #178066;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 0 0;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
 /* Contact form select styling */
 .contact_section .form_container select {
     width: 100%;
