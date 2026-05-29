@@ -33,7 +33,7 @@
                 <div class="col-md-6 col-lg-4 mb-4">
                     <div class="specialist-card">
                         {% if specialist.photo %}
-                            <img src="{{ asset(specialist.photo) }}" alt="{{ specialist.name }}" class="specialist-photo">
+                            <img src="{{ asset('images/specialists/' ~ specialist.photo) }}" alt="{{ specialist.name }}" class="specialist-photo">
                         {% else %}
                             <div class="specialist-photo-placeholder"><i class="fa fa-user-md"></i></div>
                         {% endif %}

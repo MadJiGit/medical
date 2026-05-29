@@ -21,6 +21,17 @@ button.btn1:hover {
     text-decoration: none;
 }
 
+/* Hero slider btn1 — оригинален стил (бял фон, зелен текст) */
+.slider_section .detail-box .btn-box a.btn1 {
+    background-color: #ffffff !important;
+    color: #62d2a2 !important;
+}
+
+.slider_section .detail-box .btn-box a.btn1:hover {
+    background-color: transparent !important;
+    color: #ffffff !important;
+}
+
 .locale-switcher a {
     color: #fff;
 }

@@ -1,0 +1,7 @@
+vich_uploader:
+    db_driver: orm
+    mappings:
+        specialist_photo:
+            uri_prefix: /images/specialists
+            upload_destination: '%kernel.project_dir%/public/images/specialists'
+            namer: Vich\UploaderBundle\Naming\UniqidNamer

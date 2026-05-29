@@ -13,10 +13,15 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Symfony\Component\Security\Http\Attribute\IsGranted;
+use Symfony\Component\String\Slugger\SluggerInterface;
+use Vich\UploaderBundle\Form\Type\VichImageType;
+use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 
 #[IsGranted('ROLE_ADMIN')]
 class SpecialistCrudController extends AbstractCrudController
 {
+    public function __construct(private SluggerInterface $slugger) {}
+
     public static function getEntityFqcn(): string
     {
         return Specialist::class;
@@ -47,13 +52,12 @@ class SpecialistCrudController extends AbstractCrudController
         if (in_array($pageName, [Crud::PAGE_DETAIL, Crud::PAGE_EDIT, Crud::PAGE_NEW])) {
             $fields = [
                 IdField::new('id')->hideOnForm(),
-                TextField::new('slug'),
                 TextField::new('name', 'Name'),
                 TextField::new('specialtyBg', 'Specialty (BG)'),
                 TextField::new('specialtyEn', 'Specialty (EN)'),
                 TextareaField::new('bioBg', 'Bio (BG)')->setNumOfRows(5),
                 TextareaField::new('bioEn', 'Bio (EN)')->setNumOfRows(5),
-                TextField::new('photo', 'Photo Path'),
+                Field::new('photoFile', 'Photo')->setFormType(VichImageType::class)->setRequired(false),
                 TextField::new('email', 'Email'),
                 BooleanField::new('isActive', 'Active'),
                 IntegerField::new('sortOrder', 'Sort Order'),
@@ -69,5 +73,25 @@ class SpecialistCrudController extends AbstractCrudController
             ->add(Crud::PAGE_EDIT, Action::INDEX)
             ->add(Crud::PAGE_NEW, Action::INDEX)
             ->add(Crud::PAGE_INDEX, Action::DETAIL);
+    }
+
+    public function persistEntity(\Doctrine\ORM\EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $this->generateSlug($entityInstance);
+        parent::persistEntity($entityManager, $entityInstance);
+    }
+
+    public function updateEntity(\Doctrine\ORM\EntityManagerInterface $entityManager, $entityInstance): void
+    {
+        $this->generateSlug($entityInstance);
+        parent::updateEntity($entityManager, $entityInstance);
+    }
+
+    private function generateSlug(Specialist $specialist): void
+    {
+        if (empty($specialist->getSlug()) && $specialist->getName()) {
+            $slug = strtolower($this->slugger->slug($specialist->getName())->toString());
+            $specialist->setSlug($slug);
+        }
     }
 }
