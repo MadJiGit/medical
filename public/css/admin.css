@@ -1,4 +1,6 @@
-/* Edit buttons — override EA CSS variables */
+/* ── Shared mixin: override EA + BS button CSS variables ── */
+
+/* Edit buttons — yellow */
 .action-edit,
 a.action-edit,
 a[data-action-name="edit"] {
@@ -16,12 +18,14 @@ a[data-action-name="edit"] {
     color: #212529 !important;
 }
 
-/* Detail buttons — override EA CSS variables */
+/* Detail buttons — blue */
 a.action-detail,
 a[data-action-name="detail"] {
     --button-bg: #4b9efc;
     --button-color: #fff;
     --button-border-color: #4b9efc;
+    --button-hover-bg: #2485e8;
+    --button-hover-color: #fff;
     --bs-btn-bg: #4b9efc;
     --bs-btn-color: #fff;
     --bs-btn-border-color: #4b9efc;
@@ -31,18 +35,18 @@ a[data-action-name="detail"] {
     color: #fff !important;
 }
 
-/* Save and continue editing - yellow */
-.action-saveAndContinue,
-button[name="ea[newForm][btn]"][value="saveAndContinue"],
-button[name="ea[editForm][btn]"][value="saveAndContinue"] {
-    background-color: #ffc107 !important;
-    border-color: #ffc107 !important;
-    color: #212529 !important;
-}
-
-/* Back/Index buttons - green */
+/* Index / Back to list — green */
 .action-index,
 a.action-index {
+    --button-bg: #28a745;
+    --button-color: #fff;
+    --button-border-color: #28a745;
+    --button-hover-bg: #218838;
+    --button-hover-color: #fff;
+    --bs-btn-bg: #28a745;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #28a745;
+    background: #28a745 !important;
     background-color: #28a745 !important;
     border-color: #28a745 !important;
     color: #fff !important;
@@ -50,13 +54,23 @@ a.action-index {
 
 .action-index:hover,
 a.action-index:hover {
+    background: #218838 !important;
     background-color: #218838 !important;
     border-color: #1e7e34 !important;
 }
 
-/* Back to Contact Requests - green */
+/* Back to Contact Requests — green */
 .action-backToContactRequests,
 a.action-backToContactRequests {
+    --button-bg: #28a745;
+    --button-color: #fff;
+    --button-border-color: #28a745;
+    --button-hover-bg: #218838;
+    --button-hover-color: #fff;
+    --bs-btn-bg: #28a745;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #28a745;
+    background: #28a745 !important;
     background-color: #28a745 !important;
     border-color: #28a745 !important;
     color: #fff !important;
@@ -64,11 +78,73 @@ a.action-backToContactRequests {
 
 .action-backToContactRequests:hover,
 a.action-backToContactRequests:hover {
+    background: #218838 !important;
     background-color: #218838 !important;
     border-color: #1e7e34 !important;
 }
 
-/* Fixed width for Create/Edit Sample buttons */
+/* Save and continue editing — yellow */
+.action-saveAndContinue,
+button[name="ea[newForm][btn]"][value="saveAndContinue"],
+button[name="ea[editForm][btn]"][value="saveAndContinue"] {
+    --button-bg: #ffc107;
+    --button-color: #212529;
+    --button-border-color: #ffc107;
+    --bs-btn-bg: #ffc107;
+    --bs-btn-color: #212529;
+    --bs-btn-border-color: #ffc107;
+    background: #ffc107 !important;
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+/* Delete — red */
+a.action-delete,
+a[data-action-name="delete"] {
+    --button-bg: #e32121;
+    --button-color: #fff;
+    --button-border-color: #e32121;
+    --button-hover-bg: #c41a1a;
+    --button-hover-color: #fff;
+    --bs-btn-bg: #e32121;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #e32121;
+    background: #e32121 !important;
+    background-color: #e32121 !important;
+    border-color: #e32121 !important;
+    color: #fff !important;
+}
+
+/* Create Sample — green */
+a.action-createSample {
+    --button-bg: #28a745;
+    --button-color: #fff;
+    --button-border-color: #28a745;
+    --bs-btn-bg: #28a745;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #28a745;
+    background: #28a745 !important;
+    background-color: #28a745 !important;
+    border-color: #28a745 !important;
+    color: #fff !important;
+}
+
+/* Edit Sample — yellow */
+a.action-editSample {
+    --button-bg: #ffc107;
+    --button-color: #212529;
+    --button-border-color: #ffc107;
+    --bs-btn-bg: #ffc107;
+    --bs-btn-color: #212529;
+    --bs-btn-border-color: #ffc107;
+    background: #ffc107 !important;
+    background-color: #ffc107 !important;
+    border-color: #ffc107 !important;
+    color: #212529 !important;
+}
+
+/* Fixed width for Sample buttons */
 .action-createSample,
 .action-editSample,
 a.action-createSample,
@@ -77,24 +153,6 @@ a.action-editSample {
     text-align: center;
     display: inline-flex;
     justify-content: center;
-}
-a.action-createSample {
-    background-color: #28a745 !important;
-    border-color: #28a745 !important;
-    color: #fff !important;
-}
-a.action-editSample {
-    background-color: #ffc107 !important;
-    border-color: #ffc107 !important;
-    color: #212529 !important;
-}
-
-a.action-delete,
-a[data-action-name="delete"] {
-    background: #e32121 !important;
-    background-color: #e32121 !important;
-    border-color: #e32121 !important;
-    color: #fff !important;
 }
 
 /* Column Toggle Dropdown */
