@@ -39,24 +39,88 @@ about:
 # FAQ Page
 faq:
     title: 'Frequently Asked Questions'
+    intro: 'Answers to the most common questions about living with a stoma. Click a question to expand the answer.'
+    group_basics: 'Basic Questions'
+    group_pouch: 'Pouch & Equipment'
+    group_skin: 'Skin & Care'
+    group_lifestyle: 'Lifestyle'
+    group_support: 'Support & Relationships'
+    read_more: 'Read the full article'
     q1:
-        question: 'What are samples?'
-        answer: 'Samples are free medical consumable products that allow you to try the product before deciding if it suits your needs.'
+        question: 'Does the stoma hurt?'
+        answer: 'No — the stoma itself has no nerve endings and does not hurt when touched or during normal use. Pain or discomfort around the stoma usually indicates skin irritation caused by output leaking under the baseplate. Contact your stoma care nurse if you experience pain. <a href="/blog/vazstanovyavane-sled-operatsia">Read about recovering after surgery →</a>'
     q2:
-        question: 'How can I order a sample?'
-        answer: 'Fill out the contact form on our website with your details and indicate which product you are interested in. We will contact you to confirm the delivery address.'
+        question: 'Is the stoma temporary or permanent?'
+        answer: 'It depends on the reason for surgery. Some stomas are temporary — the bowel is reconnected after a few months. Others are permanent. Your surgeon will explain what applies to your specific case before the operation. <a href="/blog/podgotovka-predi-operatsia">Read about preparing for surgery →</a>'
     q3:
-        question: 'Are samples free?'
-        answer: 'Yes, all samples are completely free, including delivery.'
+        question: 'Are all stomas the same?'
+        answer: 'No. There are three main types: colostomy (from the large bowel), ileostomy (from the small bowel), and urostomy (for urine diversion). The type determines the frequency of changes and the consistency of output. <a href="/blog/podgotovka-predi-operatsia">Read more about stoma types →</a>'
     q4:
-        question: 'How many samples can I order?'
-        answer: 'You can receive one sample of each product. This allows you to try different products and choose the most suitable one for you.'
+        question: 'How often does the pouch need changing?'
+        answer: 'It depends on the type of stoma. With an ileostomy, the pouch is emptied 4–6 times daily and replaced every 1–3 days. With a colostomy, less frequently. <a href="/blog/smyana-na-torbichkata-kolko-chesto">Read the full guide →</a>'
     q5:
-        question: 'How long does delivery take?'
-        answer: 'Delivery usually takes between 3-5 business days after order confirmation.'
+        question: 'What is pancaking and how do I stop it?'
+        answer: 'Pancaking occurs when the two sides of the pouch stick together, preventing output from collecting normally. The solution is a small amount of lubricant inside the pouch or a pouch with a carbon filter. <a href="/blog/problemi-s-kozha-okolo-stomata">See more problems and solutions →</a>'
     q6:
-        question: 'Who are the samples intended for?'
-        answer: 'Samples are intended for all adults (over 18 years old) who need medical consumables for outpatient care after surgeries or medical procedures.'
+        question: 'How do I stop my pouch leaking?'
+        answer: 'Leakage is almost always caused by an incorrectly sized baseplate opening (it should be 2–3 mm larger than the stoma), a worn baseplate, or uneven skin. <a href="/blog/problemi-s-kozha-okolo-stomata">Read about causes and solutions →</a>'
+    q7:
+        question: 'How do I remove the pouch without damaging my skin?'
+        answer: 'Use an adhesive remover spray or wipe at every change. Support the skin with one hand and peel slowly from top to bottom. Never pull off a dry baseplate. <a href="/blog/premahvane-na-meditsinsko-lepilo">Read about adhesive removers →</a>'
+    q8:
+        question: 'How do I protect the skin around my stoma?'
+        answer: 'Clean with warm water and a soft cloth, wait until the skin is completely dry, and apply a barrier film before fitting the baseplate. Avoid creams and moisturisers in the peristomal area. <a href="/blog/grizha-za-kozha-okolo-stomata">Read the full skin care guide →</a>'
+    q9:
+        question: 'Can I shower or bathe with a stoma?'
+        answer: 'Yes. You can shower with or without the pouch — both are safe. Water does not damage the stoma. For baths, it is recommended to keep the pouch on, particularly with an ileostomy. <a href="/blog/pochistvane-i-higiena-pri-smyana">Read about hygiene during pouch changes →</a>'
+    q10:
+        question: 'Can I play sport?'
+        answer: 'Yes — after the recovery period (usually 6–8 weeks). Most sports are safe. Wear supportive fitted clothing over the pouch and empty it before exercise. <a href="/blog/sport-i-fizicheska-aktivnost">Read the full guide to sport →</a>'
+    q11:
+        question: 'What should I pack for air travel?'
+        answer: 'Carry at least double your usual supply in hand luggage. Bring a medical letter from your doctor for security. Empty your pouch before boarding. <a href="/blog/patuvane-s-ostoma">Read the full travel guide →</a>'
+    q12:
+        question: 'Does diet affect the stoma?'
+        answer: 'Yes. Some foods thicken output (rice, banana, potatoes), others loosen it (coffee, alcohol, fruit). With an ileostomy, hydration is especially important. <a href="/blog/dieta-i-hidratatsia">Read the full diet guide →</a>'
+    q13:
+        question: 'What types of stoma pouches are available?'
+        answer: 'There are two main types — closed (single-use) and drainable (with a clip or tap, emptied multiple times). Urostomy pouches have a drainage outlet for urine. Two-piece systems allow the baseplate and pouch to be changed independently.'
+    q14:
+        question: 'What is ballooning?'
+        answer: 'Ballooning is when wind gets trapped inside the pouch, causing it to inflate. Reducing gas-forming foods (beans, cauliflower, fizzy drinks) and avoiding chewing gum can help. Pouches with a carbon filter release gas automatically and prevent ballooning.'
+    q15:
+        question: 'When should I change or empty my pouch?'
+        answer: 'Drainable pouches should be emptied when around one-third full. Closed pouches are changed after each emptying. Frequency depends on stoma type and personal preference — your stoma nurse will give personalised guidance. <a href="/blog/smyana-na-torbichkata-kolko-chesto">Read the full guide →</a>'
+    q16:
+        question: 'How do I dispose of a used pouch?'
+        answer: 'Wrap the used pouch in a disposal bag or paper and place it in the household bin. Never flush a pouch down the toilet — it will block the drainage system.'
+    q17:
+        question: 'What do stoma management products do?'
+        answer: 'These are accessory products that address common stoma issues: barrier films to protect the skin, adhesive removers, output-thickening gels, odour control drops, and lubricants to prevent pancaking. Ask your stoma nurse which products are right for you. <a href="/blog/grizha-za-kozha-okolo-stomata">Read the full skin care guide →</a>'
+    q18:
+        question: 'The skin around my stoma is sore from removing the pouch. What can I do?'
+        answer: 'Use an adhesive remover spray or wipe at every change — this significantly reduces skin trauma. Support the skin with your fingers and peel slowly. If irritation persists, speak to your stoma nurse; you may need a barrier paste or a different baseplate. <a href="/blog/premahvane-na-meditsinsko-lepilo">Read about adhesive removers →</a>'
+    q19:
+        question: 'Will people notice I am wearing a pouch?'
+        answer: 'In most cases, no — especially once healed. The pouch lies flat beneath clothing. Close-fitting underwear, dark colours, and looser outer garments all help. Specialist stoma underwear and pouch covers are also available.'
+    q20:
+        question: 'I am worried about smells. What can I do?'
+        answer: 'Modern pouches are sealed and do not leak odour during normal use. When changing, use deodorising drops or spray inside the pouch. Identify and limit the foods that increase odour for you personally.'
+    q21:
+        question: 'Can I wear normal clothes?'
+        answer: 'Yes. Most people return to their usual clothing after healing. Avoid very tight waistbands directly over the stoma. Specialist stoma underwear and support belts are available for extra support and discretion if needed.'
+    q22:
+        question: 'I work in a quiet office and I am worried about smells and noise. What can I do?'
+        answer: 'Gas can be managed through diet and using pouches with a carbon filter. Use deodorising products when changing and empty your pouch before important meetings. Most colleagues will not notice — modern pouches are designed for discretion.'
+    q23:
+        question: 'I am struggling to come to terms with my stoma. Where can I get help?'
+        answer: 'It is completely normal to find the adjustment difficult at first. Speak with your stoma care nurse or reach out to patient support organisations and online communities. Connecting with others who have been through the same experience is particularly valuable. <a href="/blog/psihologicheska-podkrepa">Read about psychological support with a stoma →</a>'
+    q24:
+        question: 'How do I explain my stoma to a new partner?'
+        answer: 'Choose a calm moment and explain simply — why the operation was needed and how it has affected your life. Focus on the positive: the stoma has allowed you to return to an active life. Many people with a stoma enjoy a full and fulfilling intimate life. <a href="/blog/intimnost-i-vzaimootnoshenia">Read about intimacy with a stoma →</a>'
+    q25:
+        question: 'My partner has a stoma. Where can I find out more?'
+        answer: 'Be patient and avoid overwhelming them with questions at once. Offer to attend a stoma nurse appointment together if they are ready. Seek information from reputable medical sources. <a href="/blog/kak-da-kazhete-na-blizkite">Read about telling loved ones →</a>'
 
 # Terms of Use Page
 terms:

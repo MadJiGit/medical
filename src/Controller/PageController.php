@@ -83,7 +83,7 @@ final class PageController extends AbstractController
     #[Route('/faq', name: 'app_faq')]
     public function faq(): Response
     {
-        return $this->redirectToRoute('app_blog');
+        return $this->render('page/faq.html.twig');
     }
 
     #[Route('/terms', name: 'app_terms')]

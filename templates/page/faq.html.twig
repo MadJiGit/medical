@@ -5,40 +5,73 @@
 {% block body_class %}sub_page{% endblock %}
 
 {% block content %}
-<section class="about_section layout_padding">
+<section class="layout_padding">
     <div class="container">
         <div class="heading_container">
             <h2>{{ 'faq.title'|trans({}, 'pages') }}</h2>
         </div>
+        <p class="faq-intro">{{ 'faq.intro'|trans({}, 'pages') }}</p>
 
-        <div class="row">
-            <div class="col-md-12">
-                <div class="faq-item mb-4">
-                    <h4>{{ 'faq.q1.question'|trans({}, 'pages') }}</h4>
-                    <p>{{ 'faq.q1.answer'|trans({}, 'pages') }}</p>
+        {% set groups = [
+            { key: 'basics',    questions: ['q1', 'q2', 'q3'] },
+            { key: 'pouch',     questions: ['q4', 'q5', 'q6', 'q13', 'q14', 'q15', 'q16'] },
+            { key: 'skin',      questions: ['q7', 'q8', 'q17', 'q18'] },
+            { key: 'lifestyle', questions: ['q9', 'q10', 'q11', 'q12', 'q19', 'q20', 'q21', 'q22'] },
+            { key: 'support',   questions: ['q23', 'q24', 'q25'] }
+        ] %}
+
+        {% for group in groups %}
+        <h4 class="faq-group-title">{{ ('faq.group_' ~ group.key)|trans({}, 'pages') }}</h4>
+        <div class="accordion faq-accordion" id="faq-{{ group.key }}">
+            {% for qkey in group.questions %}
+            <div class="card faq-card">
+                <div class="card-header faq-card-header" id="heading-{{ qkey }}">
+                    <button class="btn btn-link faq-question collapsed" type="button"
+                            data-toggle="collapse"
+                            data-target="#collapse-{{ qkey }}"
+                            aria-expanded="false"
+                            aria-controls="collapse-{{ qkey }}">
+                        {{ ('faq.' ~ qkey ~ '.question')|trans({}, 'pages') }}
+                        <i class="fa fa-chevron-down faq-chevron"></i>
+                    </button>
                 </div>
-                <div class="faq-item mb-4">
-                    <h4>{{ 'faq.q2.question'|trans({}, 'pages') }}</h4>
-                    <p>{{ 'faq.q2.answer'|trans({}, 'pages') }}</p>
-                </div>
-                <div class="faq-item mb-4">
-                    <h4>{{ 'faq.q3.question'|trans({}, 'pages') }}</h4>
-                    <p>{{ 'faq.q3.answer'|trans({}, 'pages') }}</p>
-                </div>
-                <div class="faq-item mb-4">
-                    <h4>{{ 'faq.q4.question'|trans({}, 'pages') }}</h4>
-                    <p>{{ 'faq.q4.answer'|trans({}, 'pages') }}</p>
-                </div>
-                <div class="faq-item mb-4">
-                    <h4>{{ 'faq.q5.question'|trans({}, 'pages') }}</h4>
-                    <p>{{ 'faq.q5.answer'|trans({}, 'pages') }}</p>
-                </div>
-                <div class="faq-item mb-4">
-                    <h4>{{ 'faq.q6.question'|trans({}, 'pages') }}</h4>
-                    <p>{{ 'faq.q6.answer'|trans({}, 'pages') }}</p>
+                <div id="collapse-{{ qkey }}" class="collapse" aria-labelledby="heading-{{ qkey }}">
+                    <div class="card-body faq-answer">
+                        {{ ('faq.' ~ qkey ~ '.answer')|trans({}, 'pages')|raw }}
+                    </div>
                 </div>
             </div>
+            {% endfor %}
+        </div>
+        {% endfor %}
+
+        <div class="faq-contact-cta mt-5">
+            <p>{{ 'blog.contact_hint'|trans({}, 'pages') }}</p>
+            <a href="{{ path('app_contact') }}" class="btn1">{{ 'home.contact_us'|trans({}, 'pages') }}</a>
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        {% set questions = ['q1','q2','q3','q4','q5','q6','q7','q8','q9','q10','q11','q12','q13','q14','q15','q16','q17','q18','q19','q20','q21','q22','q23','q24','q25'] %}
+        {% for qkey in questions %}
+        {
+            "@type": "Question",
+            "name": {{ ('faq.' ~ qkey ~ '.question')|trans({}, 'pages')|json_encode|raw }},
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": {{ ('faq.' ~ qkey ~ '.answer')|trans({}, 'pages')|striptags|json_encode|raw }}
+            }
+        }{{ not loop.last ? ',' : '' }}
+        {% endfor %}
+    ]
+}
+</script>
 {% endblock %}

@@ -42,6 +42,9 @@
                     <li class="nav-item {{ app.request.attributes.get('_route') == 'app_video' ? 'active' : '' }}">
                         <a class="nav-link" href="{{ path('app_video') }}">{{ 'nav.video'|trans }}</a>
                     </li>
+                    <li class="nav-item {{ app.request.attributes.get('_route') == 'app_faq' ? 'active' : '' }}">
+                        <a class="nav-link" href="{{ path('app_faq') }}">{{ 'nav.faq'|trans }}</a>
+                    </li>
                     <li class="nav-item">
                         <span class="nav-link locale-switcher">
                             <a href="{{ path('app_locale', {locale: 'bg'}) }}" class="{{ app.request.locale == 'bg' ? 'active' : '' }}">BG</a>
