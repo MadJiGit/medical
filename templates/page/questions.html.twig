@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ 'questions.title'|trans }} - Medical{% endblock %}
+
+{% block body_class %}sub_page{% endblock %}
+
+{% block content %}
+<section class="layout_padding">
+    <div class="container">
+        <div class="heading_container">
+            <h2>{{ 'questions.title'|trans }}</h2>
+        </div>
+        <p class="questions-intro">{{ 'questions.intro'|trans }}</p>
+
+        {% if questions|length == 0 %}
+            <p class="text-muted">{{ 'questions.none'|trans }}</p>
+        {% else %}
+            <div class="questions-list">
+                {% for q in questions %}
+                <div class="question-item">
+                    <div class="question-meta">
+                        <span class="question-author">
+                            {{ q.isAnonymous ? ('questions.anonymous'|trans) : q.name }}
+                        </span>
+                        {% if q.answeredAt %}
+                            <span class="question-date">{{ q.answeredAt|date('d.m.Y') }}</span>
+                        {% endif %}
+                    </div>
+                    <p class="question-text">{{ q.question }}</p>
+                    {% if q.answer %}
+                    <div class="question-answer">
+                        <p>{{ q.answer }}</p>
+                        {% if q.answeredBy %}
+                            <span class="question-answered-by">— {{ q.answeredBy }}</span>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <div class="faq-contact-cta mt-5">
+            <p>{{ 'questions.cta'|trans }}</p>
+            <a href="{{ path('app_specialists') }}" class="btn1">{{ 'specialists.ask_general'|trans }}</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

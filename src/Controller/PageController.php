@@ -3,13 +3,17 @@
 namespace App\Controller;
 
 use App\DTO\ContactFormDTO;
+use App\Entity\SpecialistQuestion;
 use App\Repository\BlogCategoryRepository;
 use App\Repository\BlogPostRepository;
 use App\Repository\ContactRequestRepository;
+use App\Repository\SpecialistQuestionRepository;
+use App\Repository\SpecialistRepository;
 use App\Repository\VideoCategoryRepository;
 use App\Repository\VideoRepository;
 use App\Repository\UserRepository;
 use App\Service\ProductService;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\DependencyInjection\Attribute\Autowire;
 use Symfony\Component\HttpFoundation\Request;
@@ -84,6 +88,95 @@ final class PageController extends AbstractController
     public function faq(): Response
     {
         return $this->render('page/faq.html.twig');
+    }
+
+    #[Route('/specialists', name: 'app_specialists', methods: ['GET', 'POST'])]
+    public function specialists(
+        Request $request,
+        SpecialistRepository $specialistRepo,
+        EntityManagerInterface $em,
+        MailerInterface $mailer,
+        LoggerInterface $logger,
+        #[Autowire('%app.email%')] string $appEmail
+    ): Response {
+        $specialists = $specialistRepo->findActive();
+        $errors = [];
+
+        if ($request->isMethod('POST')) {
+            $name         = trim($request->request->get('name', ''));
+            $email        = trim($request->request->get('email', ''));
+            $phone        = trim($request->request->get('phone', ''));
+            $questionText = trim($request->request->get('question', ''));
+            $isAnonymous  = (bool) $request->request->get('is_anonymous', false);
+            $specialistId = $request->request->get('specialist_id');
+
+            if (!$name || !$email || !$questionText) {
+                $errors[] = 'Please fill in all required fields.';
+            }
+
+            if (empty($errors)) {
+                $question = new SpecialistQuestion();
+                $question->setName($name);
+                $question->setEmail($email);
+                $question->setPhone($phone ?: null);
+                $question->setQuestion($questionText);
+                $question->setIsAnonymous($isAnonymous);
+
+                if ($specialistId) {
+                    $specialist = $specialistRepo->find((int) $specialistId);
+                    if ($specialist) {
+                        $question->setSpecialist($specialist);
+                    }
+                }
+
+                $em->persist($question);
+                $em->flush();
+
+                $specialistName = $question->getSpecialist()?->getName() ?? 'General pool';
+
+                try {
+                    $emailMsg = (new Email())
+                        ->from($appEmail)
+                        ->to($appEmail)
+                        ->subject('New question from ' . $name)
+                        ->html(sprintf(
+                            '<h2>New Specialist Question</h2>
+                            <p><strong>From:</strong> %s</p>
+                            <p><strong>Email:</strong> %s</p>
+                            <p><strong>Phone:</strong> %s</p>
+                            <p><strong>Specialist:</strong> %s</p>
+                            <p><strong>Anonymous:</strong> %s</p>
+                            <p><strong>Question:</strong></p>
+                            <p>%s</p>',
+                            htmlspecialchars($name),
+                            htmlspecialchars($email),
+                            htmlspecialchars($phone ?: 'N/A'),
+                            htmlspecialchars($specialistName),
+                            $isAnonymous ? 'Yes' : 'No',
+                            nl2br(htmlspecialchars($questionText))
+                        ));
+                    $mailer->send($emailMsg);
+                } catch (\Exception $e) {
+                    $logger->error('Failed to send question notification', ['error' => $e->getMessage()]);
+                }
+
+                $this->addFlash('success', 'specialists.success');
+                return $this->redirectToRoute('app_specialists');
+            }
+        }
+
+        return $this->render('page/specialists.html.twig', [
+            'specialists' => $specialists,
+            'errors'      => $errors,
+        ]);
+    }
+
+    #[Route('/questions', name: 'app_questions')]
+    public function questions(SpecialistQuestionRepository $questionRepo): Response
+    {
+        return $this->render('page/questions.html.twig', [
+            'questions' => $questionRepo->findPublished(),
+        ]);
     }
 
     #[Route('/terms', name: 'app_terms')]

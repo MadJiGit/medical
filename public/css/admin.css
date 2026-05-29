@@ -1,10 +1,11 @@
 /* Edit buttons - dark yellow/orange */
 .action-edit,
 .action-edit .btn,
-a.action-edit {
+a.action-edit,
+td .action-edit {
     background-color: #d4a017 !important;
     border-color: #d4a017 !important;
-    color: #fff !important;
+    color: #212529 !important;
 }
 
 .action-edit:hover,
@@ -12,6 +13,7 @@ a.action-edit {
 a.action-edit:hover {
     background-color: #b8860b !important;
     border-color: #b8860b !important;
+    color: #212529 !important;
 }
 
 /* Save and continue editing - yellow */

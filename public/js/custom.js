@@ -86,4 +86,18 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         }, 5000);
     }
+
+    // Ask question modal — /specialists page
+    var askModal = document.getElementById('askQuestionModal');
+    if (askModal) {
+        document.querySelectorAll('.btn-ask-question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var specialistId = this.dataset.specialistId || '';
+                var select = document.getElementById('modal-specialist-id');
+                if (select) {
+                    select.value = specialistId;
+                }
+            });
+        });
+    }
 });

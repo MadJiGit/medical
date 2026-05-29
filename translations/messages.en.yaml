@@ -8,6 +8,8 @@ nav:
     faq: 'FAQ'
     blog: 'Blog'
     video: 'Video'
+    specialists: 'Specialists'
+    questions: 'Q&A'
     terms: 'Terms of Use'
     privacy: 'Privacy Policy'
 
@@ -31,6 +33,30 @@ contact:
     send: 'SEND'
     success: 'Your message has been sent successfully!'
     gdpr_consent: 'I agree to the <a href="/privacy" target="_blank">Privacy Policy</a>'
+
+# Specialists page
+specialists:
+    title: 'Specialists'
+    none: 'Specialists will be added soon.'
+    ask: 'Ask a question'
+    ask_general: 'Ask a general question'
+    general_hint: 'No specific specialist in mind? Ask a general question and we will direct it.'
+    success: 'Your question has been sent successfully! You will receive a reply at the email provided.'
+    form:
+        title: 'Ask a Question'
+        to: 'To specialist'
+        general: 'General question (no specific specialist)'
+        question: 'Your question'
+        anonymous: 'I want my question published anonymously'
+        submit: 'Send'
+
+# Questions page
+questions:
+    title: 'Questions & Answers'
+    intro: 'Real questions from our users with answers from specialists.'
+    none: 'No published answers yet.'
+    anonymous: 'Anonymous'
+    cta: 'Have a question? Ask our specialists.'
 
 # Footer
 footer:

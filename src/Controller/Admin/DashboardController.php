@@ -5,6 +5,8 @@ namespace App\Controller\Admin;
 use App\Entity\BlogCategory;
 use App\Entity\BlogPost;
 use App\Entity\Category;
+use App\Entity\Specialist;
+use App\Entity\SpecialistQuestion;
 use App\Entity\Video;
 use App\Entity\VideoCategory;
 use App\Entity\ContactRequest;
@@ -68,6 +70,10 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Video');
         yield MenuItem::linkToCrud('Video Categories', 'fa fa-folder-open', VideoCategory::class);
         yield MenuItem::linkToCrud('Videos', 'fa fa-video-camera', Video::class);
+
+        yield MenuItem::section('Specialists');
+        yield MenuItem::linkToCrud('Specialists', 'fa fa-user-md', Specialist::class);
+        yield MenuItem::linkToCrud('Questions', 'fa fa-question-circle', SpecialistQuestion::class);
 
         yield MenuItem::section('Communication');
         yield MenuItem::linkToCrud('Contact Requests', 'fa fa-envelope', ContactRequest::class);
