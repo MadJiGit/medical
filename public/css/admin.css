@@ -1,19 +1,34 @@
-/* Edit buttons - dark yellow/orange */
+/* Edit buttons — override EA CSS variables */
 .action-edit,
-.action-edit .btn,
 a.action-edit,
-td .action-edit {
+a[data-action-name="edit"] {
+    --button-bg: #d4a017;
+    --button-color: #212529;
+    --button-border-color: #d4a017;
+    --button-hover-bg: #b8860b;
+    --button-hover-color: #212529;
+    --bs-btn-bg: #d4a017;
+    --bs-btn-color: #212529;
+    --bs-btn-border-color: #d4a017;
+    background: #d4a017 !important;
     background-color: #d4a017 !important;
     border-color: #d4a017 !important;
     color: #212529 !important;
 }
 
-.action-edit:hover,
-.action-edit .btn:hover,
-a.action-edit:hover {
-    background-color: #b8860b !important;
-    border-color: #b8860b !important;
-    color: #212529 !important;
+/* Detail buttons — override EA CSS variables */
+a.action-detail,
+a[data-action-name="detail"] {
+    --button-bg: #4b9efc;
+    --button-color: #fff;
+    --button-border-color: #4b9efc;
+    --bs-btn-bg: #4b9efc;
+    --bs-btn-color: #fff;
+    --bs-btn-border-color: #4b9efc;
+    background: #4b9efc !important;
+    background-color: #4b9efc !important;
+    border-color: #4b9efc !important;
+    color: #fff !important;
 }
 
 /* Save and continue editing - yellow */
@@ -74,14 +89,9 @@ a.action-editSample {
     color: #212529 !important;
 }
 
-a.action-detail {
-    background-color: #4b9efc !important;
-    border-color: #007bff !important;
-    color: #fff !important;
-}
-
 a.action-delete,
 a[data-action-name="delete"] {
+    background: #e32121 !important;
     background-color: #e32121 !important;
     border-color: #e32121 !important;
     color: #fff !important;

@@ -30,7 +30,9 @@
                     {% if q.answer %}
                     <div class="question-answer">
                         <p>{{ q.answer }}</p>
-                        {% if q.answeredBy %}
+                        {% if q.answeredBySpecialist %}
+                            <span class="question-answered-by">— {{ q.answeredBySpecialist.name }}</span>
+                        {% elseif q.answeredBy %}
                             <span class="question-answered-by">— {{ q.answeredBy }}</span>
                         {% endif %}
                     </div>

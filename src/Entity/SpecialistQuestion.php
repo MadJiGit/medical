@@ -46,6 +46,10 @@ class SpecialistQuestion
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $answeredBy = null;
 
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: true, onDelete: 'SET NULL')]
+    private ?Specialist $answeredBySpecialist = null;
+
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $answeredAt = null;
 
@@ -96,6 +100,9 @@ class SpecialistQuestion
 
     public function getAnsweredBy(): ?string { return $this->answeredBy; }
     public function setAnsweredBy(?string $answeredBy): static { $this->answeredBy = $answeredBy; return $this; }
+
+    public function getAnsweredBySpecialist(): ?Specialist { return $this->answeredBySpecialist; }
+    public function setAnsweredBySpecialist(?Specialist $answeredBySpecialist): static { $this->answeredBySpecialist = $answeredBySpecialist; return $this; }
 
     public function getAnsweredAt(): ?\DateTimeImmutable { return $this->answeredAt; }
     public function setAnsweredAt(?\DateTimeImmutable $answeredAt): static { $this->answeredAt = $answeredAt; return $this; }

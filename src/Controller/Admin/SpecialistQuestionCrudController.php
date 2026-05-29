@@ -79,7 +79,7 @@ class SpecialistQuestionCrudController extends AbstractCrudController
                 TextareaField::new('question', 'Question')->setNumOfRows(4)->setFormTypeOption('disabled', true),
                 ChoiceField::new('status')->setChoices($statusChoices),
                 TextareaField::new('answer', 'Answer')->setNumOfRows(8),
-                TextField::new('answeredBy', 'Answered By'),
+                AssociationField::new('answeredBySpecialist', 'Answered By')->setRequired(false),
                 DateTimeField::new('answeredAt', 'Answered At'),
                 BooleanField::new('isPublic', 'Publish to /questions'),
                 DateTimeField::new('createdAt', 'Submitted')->hideOnForm(),
