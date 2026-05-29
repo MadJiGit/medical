@@ -75,8 +75,9 @@ class UserCrudController extends AbstractCrudController
                 ->renderExpanded();
         }
 
-        $fields[] = BooleanField::new('isActive');
-        $fields[] = BooleanField::new('isBanned');
+        $isSuperAdmin = $this->isGranted('ROLE_SUPER_ADMIN');
+        $fields[] = BooleanField::new('isActive')->renderAsSwitch($isSuperAdmin);
+        $fields[] = BooleanField::new('isBanned')->renderAsSwitch($isSuperAdmin);
         $fields[] = DateTimeField::new('createdAt')->hideOnForm();
 
         return $fields;
@@ -126,6 +127,13 @@ class UserCrudController extends AbstractCrudController
 
     public function updateEntity($entityManager, $entityInstance): void
     {
+        if ($entityInstance instanceof User
+            && !$this->isGranted('ROLE_SUPER_ADMIN')
+            && in_array('ROLE_SUPER_ADMIN', $entityInstance->getRoles())
+        ) {
+            throw $this->createAccessDeniedException('Cannot modify a Super Admin account.');
+        }
+
         if ($entityInstance instanceof User) {
             $password = $entityInstance->getPassword();
             if ($password && strlen($password) < 60) { // not hashed yet
