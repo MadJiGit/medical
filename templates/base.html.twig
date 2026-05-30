@@ -6,7 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="">
+    <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/png">
+    <link rel="apple-touch-icon" href="{{ asset('images/icon-180.png') }}">
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <meta name="theme-color" content="#1fab89">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Остома">
 
     <title>{% block title %}Medical{% endblock %}</title>
 
@@ -37,6 +44,11 @@
 <script type="text/javascript"
         src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/custom.js') }}"></script>
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js').catch(() => {});
+  }
+</script>
 {% block javascripts %}{% endblock %}
 </body>
 </html>

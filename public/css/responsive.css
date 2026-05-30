@@ -1,14 +1,54 @@
+/* ============================================================
+   Hamburger button
+   ============================================================ */
+.navbar-toggler {
+  border: none;
+  background: transparent;
+  padding: 6px 8px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon-custom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+}
+
+.navbar-toggler-icon-custom span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: all 0.25s ease;
+}
+
+/* ============================================================
+   >= 1200px
+   ============================================================ */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1170px;
+  }
+}
+
+/* ============================================================
+   <= 1299px
+   ============================================================ */
 @media (max-width: 1299px) {
   .hero_area .hero_bg_box {
     top: 0;
     left: 0;
     width: 100%;
   }
-
 }
 
-@media (max-width: 1120px) {}
-
+/* ============================================================
+   <= 992px  (tablet / collapsed nav)
+   ============================================================ */
 @media (max-width: 992px) {
   .hero_area {
     min-height: auto;
@@ -21,21 +61,45 @@
   .custom_nav-container .navbar-nav {
     padding-top: 15px;
     align-items: center;
+    background: rgba(0,0,0,0.15);
+    border-radius: 8px;
+    padding-bottom: 10px;
+    margin-top: 8px;
   }
 
   .custom_nav-container .navbar-nav .nav-item .nav-link {
-    padding: 5px 25px;
-    margin: 5px 0;
+    padding: 8px 20px;
+    margin: 2px 0;
   }
 
   .footer_section .footer_bg_box img {
     -o-object-position: 10% top;
     object-position: 10% top;
   }
+
+  /* Blog tabs — horizontal scroll */
+  .nav-tabs.video-tabs {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    padding-bottom: 2px;
+  }
+
+  .nav-tabs.video-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .nav-tabs.video-tabs .nav-item {
+    flex-shrink: 0;
+  }
 }
 
+/* ============================================================
+   <= 767px  (mobile landscape / large phones)
+   ============================================================ */
 @media (max-width: 767px) {
-
   .about_section .img-box {
     margin-bottom: 30px;
   }
@@ -52,10 +116,84 @@
     -o-object-position: center top;
     object-position: center top;
   }
+
+  /* Blog cards — single column, shorter image */
+  .blog-card-top {
+    height: 160px;
+  }
+
+  /* Blog show image */
+  .blog-show-image {
+    border-radius: 6px;
+    margin-bottom: 24px;
+  }
+
+  .blog-show-title {
+    font-size: 1.5rem;
+  }
+
+  /* Blog nav prev/next — stack */
+  .blog-show-nav {
+    flex-direction: column;
+    gap: 12px;
+    align-items: flex-start;
+  }
+
+  .blog-contact-hint {
+    order: -1;
+  }
+
+  /* Specialists */
+  .specialist-card {
+    margin-bottom: 20px;
+  }
 }
 
-@media (max-width: 576px) {}
+/* ============================================================
+   <= 576px  (mobile portrait)
+   ============================================================ */
+@media (max-width: 576px) {
+  .layout_padding {
+    padding: 45px 0;
+  }
 
+  .heading_container h2 {
+    font-size: 1.6rem;
+  }
+
+  .blog-card-top {
+    height: 180px;
+  }
+
+  .blog-show-header {
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+  }
+
+  .blog-show-title {
+    font-size: 1.35rem;
+  }
+
+  .blog-show-content {
+    font-size: 0.95rem;
+  }
+
+  /* FAQ */
+  .faq-card-header button {
+    font-size: 0.9rem;
+    padding: 12px 14px;
+  }
+
+  /* Tabs font size */
+  .nav-tabs.video-tabs .nav-link {
+    font-size: 0.82rem;
+    padding: 6px 12px;
+  }
+}
+
+/* ============================================================
+   <= 480px
+   ============================================================ */
 @media (max-width: 480px) {
   .slider_section .detail-box h1 {
     font-size: 2rem;
@@ -66,14 +204,13 @@
     padding-left: 10px;
     padding-right: 10px;
   }
-}
 
-@media (max-width: 420px) {}
-
-@media (max-width: 376px) {}
-
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1170px;
+  .blog-show-nav .blog-nav-btn span {
+    font-size: 0.8rem;
+    max-width: 120px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
   }
 }
