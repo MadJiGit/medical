@@ -1,0 +1,202 @@
+[
+  {
+    "id": 1,
+    "slug": "kak-pravilno-da-postavite-stomna-torbichka",
+    "category": "how-to-use",
+    "title_en": "How to Apply an Ostomy Pouch Correctly",
+    "excerpt_en": "Changing your ostomy pouch may feel complicated at first. With the right technique and a little practice, it becomes routine.",
+    "image_prompt": "Close-up of gentle hands carefully pressing a small round adhesive patch onto a person's side, the person wearing a soft cotton t-shirt lifted slightly, warm bathroom light, tidy counter blurred in background, shallow depth of field, warm tones, photorealistic lifestyle photography"
+  },
+  {
+    "id": 2,
+    "slug": "vidove-stomni-torbichki",
+    "category": "how-to-use",
+    "title_en": "Types of Ostomy Pouches: Which One is Right for You?",
+    "excerpt_en": "One-piece or two-piece, drainable or closed — choosing the right system is personal and depends on your stoma type, lifestyle, and individual preferences.",
+    "image_prompt": "Several small beige medical pouches and flat adhesive discs arranged neatly on a clean white surface, flat lay top-down view, soft diffused side light, minimalist product layout, photorealistic"
+  },
+  {
+    "id": 3,
+    "slug": "kak-da-izmerite-stomata",
+    "category": "how-to-use",
+    "title_en": "How to Measure Your Stoma Correctly",
+    "excerpt_en": "Accurate stoma measurement is the foundation of a good seal. The size changes after surgery, so measuring is a skill you need to learn early on.",
+    "image_prompt": "Close-up of hands holding a small white paper card printed with concentric circles against bare skin, careful precise gesture, warm soft light, clean neutral background, photorealistic"
+  },
+  {
+    "id": 4,
+    "slug": "smyana-na-torbichkata-kolko-chesto",
+    "category": "how-to-use",
+    "title_en": "How Often Should You Change Your Pouch?",
+    "excerpt_en": "Not too rarely, not too often. Finding the right changing rhythm matters for skin health and peace of mind in daily life.",
+    "image_prompt": "Neat bathroom shelf with small flat medical pouches, a tiny spray bottle, and gauze pads arranged in an orderly row, soft morning window light, warm neutral tones, calm and organised, photorealistic lifestyle photography"
+  },
+  {
+    "id": 5,
+    "slug": "adaptirane-na-osnovata",
+    "category": "how-to-use",
+    "title_en": "Adapting the Baseplate to Your Body Shape",
+    "excerpt_en": "Uneven skin, scars, or a flush stoma make sealing harder. There are specific solutions for every situation.",
+    "image_prompt": "Close-up of fingers carefully pressing and shaping the rounded edge of a skin-coloured adhesive disc, warm soft light, clean white background, precise and caring hand gesture, photorealistic"
+  },
+  {
+    "id": 6,
+    "slug": "kak-da-poiskate-bezplatna-mostra",
+    "category": "how-to-use",
+    "title_en": "How to Request a Free Sample from a Manufacturer",
+    "excerpt_en": "All major ostomy product manufacturers offer free samples. Try different systems before deciding which one works best for you.",
+    "image_prompt": "Smiling woman in her 40s opening a small padded envelope at a bright kitchen table, small medical sample packets visible inside, warm natural daylight, happy and curious expression, home lifestyle photography, photorealistic"
+  },
+  {
+    "id": 7,
+    "slug": "patuvane-s-ostoma",
+    "category": "how-to-use",
+    "title_en": "Travelling with an Ostomy: Practical Tips",
+    "excerpt_en": "Having an ostomy does not have to limit your desire to travel. With a little preparation you can travel confidently.",
+    "image_prompt": "Confident smiling woman in her 50s walking through a bright modern airport terminal pulling a small rolling suitcase, natural daylight streaming through large windows, relaxed and happy, travel lifestyle photography, photorealistic"
+  },
+  {
+    "id": 8,
+    "slug": "grizha-za-kozha-okolo-stomata",
+    "category": "care",
+    "title_en": "Skin Care Around the Stoma",
+    "excerpt_en": "The skin around the stoma is sensitive and requires special care. Learn which products are suitable and how to keep the peristomal area healthy.",
+    "image_prompt": "Close-up of a gentle hand applying a few drops of clear liquid from a small bottle to smooth bare skin on an abdomen, soft warm bathroom lighting, careful and methodical gesture, shallow depth of field, photorealistic"
+  },
+  {
+    "id": 9,
+    "slug": "kak-da-predotvratite-drazneneto",
+    "category": "care",
+    "title_en": "How to Prevent Skin Irritation Around the Stoma",
+    "excerpt_en": "Redness and itching around the stoma are common but preventable. Here are proven methods for protecting your skin.",
+    "image_prompt": "Person standing in a bright clean bathroom gently patting their midsection dry with a soft white towel, calm and careful, warm morning light through a frosted window, lifestyle photography, photorealistic"
+  },
+  {
+    "id": 10,
+    "slug": "pochistvane-i-higiena-pri-smyana",
+    "category": "care",
+    "title_en": "Cleaning and Hygiene During Pouch Changes",
+    "excerpt_en": "Proper cleaning at every change is the foundation of healthy skin and long-lasting pouch adhesion.",
+    "image_prompt": "White bathroom counter with soft white gauze pads, a small spray bottle, and folded cotton wipes neatly arranged beside a sink, warm window light, clean and tidy, flat lay lifestyle photography, photorealistic"
+  },
+  {
+    "id": 11,
+    "slug": "kakvi-produkti-ne-tryabva-da-izpolzvate",
+    "category": "care",
+    "title_en": "Products You Should Never Use Around Your Stoma",
+    "excerpt_en": "Some creams, oils, and cleaning products damage the adhesive layer. Find out which ones to avoid and why.",
+    "image_prompt": "Row of colorful moisturising lotion bottles, scented soap bars, and fragrant creams lined up on a white bathroom shelf, soft clean side lighting, product photography style, photorealistic"
+  },
+  {
+    "id": 12,
+    "slug": "grizha-za-stomata-pri-toplo-vreme",
+    "category": "care",
+    "title_en": "Caring for Your Stoma in Hot Weather",
+    "excerpt_en": "Summer brings specific challenges — sweating, sun, and swimming. Here is how to manage them confidently.",
+    "image_prompt": "Happy woman in her 40s swimming in a clear turquoise outdoor pool on a bright sunny summer day, water sparkling around her, wide smile, bright natural sunlight, vibrant summer lifestyle photography, photorealistic"
+  },
+  {
+    "id": 13,
+    "slug": "dieta-i-hidratatsia",
+    "category": "care",
+    "title_en": "Diet and Hydration with an Ostomy",
+    "excerpt_en": "What you eat directly affects the volume and consistency of output. What to eat, what to limit, and how to stay well hydrated.",
+    "image_prompt": "Bright kitchen counter with colourful fresh vegetables, a bowl of fruit, and a tall glass of water in warm morning sunlight, food lifestyle photography, abundant and healthy, warm yellow tones, photorealistic"
+  },
+  {
+    "id": 14,
+    "slug": "sport-i-fizicheska-aktivnost",
+    "category": "care",
+    "title_en": "Sport and Physical Activity with an Ostomy",
+    "excerpt_en": "An ostomy is not a barrier to an active life. Which sports are safe, how to protect yourself, and what to watch out for.",
+    "image_prompt": "Athletic person in their 40s jogging on a tree-lined park path in morning sunlight, colourful running clothes, confident energetic stride, golden light through leaves, fitness lifestyle photography, photorealistic"
+  },
+  {
+    "id": 15,
+    "slug": "zhivota-sled-operatsia-pyrvite-sedmitsi",
+    "category": "life",
+    "title_en": "Life After Surgery — The First Weeks",
+    "excerpt_en": "The adjustment period is difficult but temporary. Here is what to expect physically and emotionally in the weeks after your ostomy surgery.",
+    "image_prompt": "Middle-aged person resting on a comfortable sofa in soft loungewear, a caring partner seated beside them with a gentle hand on their shoulder, warm afternoon sunlight filling a cosy living room, quiet and supportive atmosphere, lifestyle photography, photorealistic"
+  },
+  {
+    "id": 16,
+    "slug": "kak-da-kazhete-na-blizkite",
+    "category": "life",
+    "title_en": "How to Tell the People You Love",
+    "excerpt_en": "Talking to your partner, children, and friends about your ostomy can feel daunting. Here is how to approach it.",
+    "image_prompt": "Two people sitting across from each other at a wooden kitchen table, both holding mugs of tea, warm genuine eye contact, calm and honest conversation, natural daylight from a nearby window, warm home atmosphere, lifestyle photography, photorealistic"
+  },
+  {
+    "id": 17,
+    "slug": "vrashane-kam-rabotata",
+    "category": "life",
+    "title_en": "Returning to Work After Surgery",
+    "excerpt_en": "When and how to return to work, what adjustments to request, and how to manage the working day with an ostomy.",
+    "image_prompt": "Well-dressed person in their 40s sitting confidently at a modern office desk looking at a laptop with a slight smile, bright open office with natural light from large windows, professional lifestyle photography, photorealistic"
+  },
+  {
+    "id": 18,
+    "slug": "intimnost-i-vzaimootnoshenia",
+    "category": "life",
+    "title_en": "Intimacy and Relationships with an Ostomy",
+    "excerpt_en": "Intimacy after ostomy surgery is possible and common. Practical advice for maintaining closeness and navigating new relationships.",
+    "image_prompt": "Couple in their 40s sitting close together on a park bench, one resting their head gently on the other's shoulder, hands intertwined, warm golden afternoon light filtering through trees, tender and peaceful, lifestyle photography, photorealistic"
+  },
+  {
+    "id": 19,
+    "slug": "psihologicheska-podkrepa",
+    "category": "life",
+    "title_en": "Psychological Support — Where to Find Help",
+    "excerpt_en": "Emotional wellbeing matters as much as physical recovery. Support groups, counsellors, and online communities for people with an ostomy.",
+    "image_prompt": "Four people seated in a circle of comfortable chairs in a warmly lit room, one person speaking while others listen with empathy and warmth, soft lamps and indoor plants visible, supportive group atmosphere, lifestyle photography, photorealistic"
+  },
+  {
+    "id": 20,
+    "slug": "ostoma-i-sotsialen-zhivot",
+    "category": "life",
+    "title_en": "Ostomy and Social Life — Without Limits",
+    "excerpt_en": "Restaurants, events, travel, and beaches — with the right preparation, life continues fully. Practical advice for confident social living.",
+    "image_prompt": "Four friends in their 40s and 50s around a restaurant table laughing and talking, warm candlelit dining atmosphere, glasses and dishes on the table, genuine joy and connection, social lifestyle photography, photorealistic"
+  },
+  {
+    "id": 21,
+    "slug": "podgotovka-predi-operatsia",
+    "category": "understanding-stoma",
+    "title_en": "Preparing for Stoma Surgery",
+    "excerpt_en": "What to expect before stoma surgery — types of stoma, meeting your stoma care nurse, site marking, and what to pack for hospital.",
+    "image_prompt": "Patient sitting across from a nurse at a clinic desk, nurse pointing to a printed information leaflet, both leaning slightly forward in engaged conversation, soft warm clinical lighting, calm and reassuring atmosphere, lifestyle medical photography, photorealistic"
+  },
+  {
+    "id": 22,
+    "slug": "vazstanovyavane-sled-operatsia",
+    "category": "understanding-stoma",
+    "title_en": "Recovery After Stoma Surgery",
+    "excerpt_en": "What to expect in the weeks following surgery — activity restrictions, lifting, driving, what a healthy stoma looks like, and when to contact your nurse.",
+    "image_prompt": "Person in comfortable home clothes sitting in an armchair by a sunlit window, hands wrapped around a warm mug of tea, peaceful and hopeful expression, soft afternoon light, cosy home interior, lifestyle photography, photorealistic"
+  },
+  {
+    "id": 23,
+    "slug": "problemi-s-kozha-okolo-stomata",
+    "category": "understanding-stoma",
+    "title_en": "Stoma Skin Challenges",
+    "excerpt_en": "Irritation, leakage, pancaking — the most common peristomal skin problems and how to address them.",
+    "image_prompt": "Healthcare professional in blue scrubs gently examining a patient's lower abdomen while the patient sits on a clinic bed, warm professional lighting, caring attentive expression, clean medical room, lifestyle medical photography, photorealistic"
+  },
+  {
+    "id": 24,
+    "slug": "premahvane-na-meditsinsko-lepilo",
+    "category": "understanding-stoma",
+    "title_en": "Medical Adhesive Removers",
+    "excerpt_en": "Why adhesive remover products are an essential part of stoma care and how to use them correctly at every change.",
+    "image_prompt": "Close-up of hands holding a small spray bottle, index finger pressing the nozzle releasing a fine mist onto bare skin, soft warm bathroom lighting, precise and careful gesture, clean background, photorealistic"
+  },
+  {
+    "id": 25,
+    "slug": "parastomasna-hernia",
+    "category": "understanding-stoma",
+    "title_en": "Parastomal Hernia",
+    "excerpt_en": "What a parastomal hernia is, how to recognise one, how to prevent it, and what treatment options are available.",
+    "image_prompt": "Doctor in a white coat holding a simple anatomical diagram on a clipboard, explaining to a seated patient in a bright medical office, attentive and reassuring interaction, warm professional lighting, lifestyle medical photography, photorealistic"
+  }
+]

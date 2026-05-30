@@ -34,7 +34,12 @@
                     {% for post in cat_posts %}
                     <div class="col-md-4 mb-4">
                         <div class="blog-card">
-                            <div class="blog-card-top"></div>
+                            <div class="blog-card-top">
+                                <img src="{{ asset('images/blog/' ~ post.slug ~ '.webp') }}"
+                                     alt="{{ app.request.locale == 'en' ? post.titleEn : post.titleBg }}"
+                                     class="blog-card-img"
+                                     onerror="this.parentElement.classList.add('blog-card-top--no-img'); this.remove();">
+                            </div>
                             <div class="blog-card-body">
                                 <p class="blog-card-date">{{ post.createdAt|date('d.m.Y') }}</p>
                                 <h5 class="blog-card-title">{{ app.request.locale == 'en' ? post.titleEn : post.titleBg }}</h5>

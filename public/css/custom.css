@@ -545,8 +545,25 @@ p.question-text.expandable-text::after {
 }
 
 .blog-card-top {
-    height: 6px;
+    height: 200px;
     background: #1fab89;
+    overflow: hidden;
+}
+
+.blog-card-top--no-img {
+    height: 6px;
+}
+
+.blog-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.35s ease;
+}
+
+.blog-card:hover .blog-card-img {
+    transform: scale(1.04);
 }
 
 .blog-card-body {
@@ -705,6 +722,20 @@ p.question-text.expandable-text::after {
     color: #555;
     font-style: italic;
     margin: 0;
+}
+
+.blog-show-image {
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 36px;
+    max-height: 460px;
+}
+
+.blog-show-image img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 460px;
 }
 
 .blog-show-content {

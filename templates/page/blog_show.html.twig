@@ -21,6 +21,12 @@
             {% endif %}
         </div>
 
+        <div class="blog-show-image">
+            <img src="{{ asset('images/blog/' ~ post.slug ~ '.webp') }}"
+                 alt="{{ locale == 'en' ? post.titleEn : post.titleBg }}"
+                 onerror="this.parentElement.style.display='none';">
+        </div>
+
         <div class="blog-show-content">
             {% set content = locale == 'en' ? post.contentEn : post.contentBg %}
             {% if content %}
